@@ -49,6 +49,7 @@ function fitnessspace_setup() {
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'fitnessspace' ),
 		'social'  => __( 'Social Links Menu', 'fitnessspace' ),
+		'footer'  => __( 'Footer Links Menu', 'fitnessspace' ),
 	) );
 
 	/*
@@ -220,11 +221,8 @@ function fitnessspace_scripts() {
 	// Add Bootstrap
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6' );
 
-	// Add jquery ui
-	//wp_enqueue_style( 'jqueryui', get_template_directory_uri() . '/css/jquery-ui.min.css', array(), null );	
-
-	// Add jquery ui theme
-	//wp_enqueue_style( 'jqueryuitheme', get_template_directory_uri() . '/css/jquery-ui.theme.min.css', array(), null );	
+	//Add raccordion (added to homestyles.css)
+	//wp_enqueue_style( 'raccordion', get_template_directory_uri() . '/css/raccordion.css', array(), null );	
 	
 	// Add Swiper
 	wp_enqueue_style( 'swiper', get_template_directory_uri() . '/css/swiper.min.css', array(), '3.3.1' );
@@ -271,7 +269,7 @@ function fitnessspace_scripts() {
 
 	wp_enqueue_script( 'vid-script', get_template_directory_uri() . '/js/vid.js', array(), null );
 
-	//wp_enqueue_script( 'jqueryui', get_template_directory_uri() . '/js/jquery-ui.min.js', array(), null );
+	wp_enqueue_script( 'raccordion', get_template_directory_uri() . '/js/jquery.raccordion.js', array(), null );
 
 	wp_enqueue_script( 'animation-easing', get_template_directory_uri() . '/js/jquery.animation.easing.js', array(), null );
 

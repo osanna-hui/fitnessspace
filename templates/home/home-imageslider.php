@@ -5,6 +5,20 @@
                 <h1>FITNESS SPACE</h1>
                 <button class="clear-button">BOOK A CLASS</button>
             </div>
+            <?php if ( has_nav_menu( 'primary' ) ) : ?>
+        <div class="landing-nav">
+            <?php if ( has_nav_menu( 'primary' ) ) : ?>
+                <nav id="landing-nav" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'fitnessspace' ); ?>">
+                    <?php
+                        wp_nav_menu( array(
+                            'theme_location' => 'primary',
+                            'menu_class'     => 'primary-menu',
+                         ) );
+                    ?>
+                </nav><!-- .main-navigation -->
+            <?php endif; ?>
+        </div><!-- .site-header-menu -->
+    <?php endif; ?>
         </div>
 
         <div class="swiper-wrapper">
@@ -30,6 +44,7 @@
         <!-- Slider Arrows -->
         <div class="swiper-button-next swiper-button-white"></div>
         <div class="swiper-button-prev swiper-button-white"></div>
+        
 	</div>
 </div>
 

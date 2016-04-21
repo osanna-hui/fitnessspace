@@ -2,7 +2,8 @@
     <div class="video-container home-sections">
         <div class="title-container">
 	        <div class="headline">
-	        	<h1>FITNESS SPACE</h1>
+                <?php fitnessspace_the_custom_logo(); ?>
+	        	<!-- <h1>FITNESS SPACE</h1> -->
 	        	<button class="clear-button">BOOK A CLASS</button>
 	        </div>
 	    </div>

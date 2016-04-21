@@ -1,8 +1,8 @@
-<?php get_header(); ?>
+<?php get_header('home'); ?>
 
-	<div id="primary" class="content-area">
+	<!-- <div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
+ -->
 		<?php if ( have_posts() ) : ?>
 
 			<?php
@@ -10,8 +10,8 @@
 			// Get template parts for home page
 			//while ( have_posts() ) : the_post();
 
-				get_template_part( 'templates/home/home', 'imageslider' );
-				get_template_part( 'templates/home/home', 'videolanding' );
+				//get_template_part( 'templates/home/home', 'imageslider' );
+				//get_template_part( 'templates/home/home', 'videolanding' );
 				get_template_part( 'templates/home/home', 'about' );
 				get_template_part( 'templates/home/home', 'classes' );
 				get_template_part( 'templates/home/home', 'trainers' );

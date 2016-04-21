@@ -25,4 +25,5 @@
 </div><!-- .content-area -->
 
 <?php get_sidebar(); ?>
+<div class="margin"></div>
 <?php get_footer(); ?>

@@ -72,7 +72,7 @@ a:hover{
 }
 .clear-button:hover, input#home-contact-submit:hover{
     background-color:#91B851;
-    border:none;
+    border:1px solid #91B851;
 }
 .circle{
     border-radius:50%;
@@ -99,7 +99,21 @@ a:hover{
     margin-top:50vh;
     text-align: center;
 }
-
+#landing-nav{
+    color:#fff;
+    text-align: center;
+    margin-top: 10%;
+}
+.main-navigation .primary-menu > li{
+    float:none;
+    display: inline-block;
+}
+#landing-nav a{
+    color:#fff;
+}
+#landing-nav a:hover{
+    color:#91B851;
+}
 
 /*********** LANDING VIDEO ************/
 .homepage-hero-module {
@@ -127,7 +141,8 @@ a:hover{
 .title-container{
     z-index: 1000;
     position: absolute;
-    top: 50%;
+    top: 40%;
+    height:60%;
     width: 100%;
     text-align: center;
     color: #fff;
@@ -153,6 +168,7 @@ a:hover{
     height: 100%;
     width:auto;
     margin-bottom:0;
+    overflow:hidden;
 }
 /*********** ABOUT ************/
 #home-about{
@@ -172,11 +188,11 @@ a:hover{
     padding:0;
 }
 .classes{
-    margin:0;
-    padding-top:125px;
-    padding-bottom:113px;
-    color:#fff;
-    background-size:cover;
+        margin: 0;
+    padding-top: 144px;
+    padding-bottom: 137px;
+    color: #fff;
+    background-size: cover;
 }
 .classes:hover {  
     background:rgba(0,0,0,.5);
@@ -186,81 +202,57 @@ a:hover{
 }
 
 /*********** TRAINERS ************/
-/*.slide{
-    max-width:60%;
-}
-.wrapper {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-}*/
-
 #home-trainers{
-    height:auto;
+    height:640px;
     background-color:#000;
     color:#fff;
 }
-.accordian {
-    width: 100%; 
-    height: 100%;
+.trainer-name, .trainer-title{
+    width: 40%;
+    margin-left: 10%;
+    margin-right:0px;
+    display:inline-block;
+}
+.trainer-button{
+    float:right;
+    margin-right: 15%;
+    margin-top: 57px;
+}
+/*********** TRAINERS ACCORDION ************/
+.accordion-wrapper {
+    overflow:hidden;
+    display:block;
+    position:relative;
+    display:inline-block;
+}
+.wrapper {
+    width: 100%;
+}
+.slide {
+    max-width:100%;
     overflow: hidden;
+    display:block;
+    -moz-box-shadow: -5px 0px 5px rgba(1, 1, 1, 0.3);
+    -webkit-box-shadow: -5px 0px 5px rgba(1, 1, 1, 0.3);
+    box-shadow: -5px 0px 5px rgba(1, 1, 1, 0.3);
+    position:absolute;
+    cursor: pointer;
+    float:left;
+    display: inline-block;
+    zoom: 1;
 }
-.accordian li, .accordian img{
+.slide img {
+    position:relative;
+}
+.caption {
+    position:absolute;
+    background:rgba(1, 1, 1, 0.6);
+    padding:20px;
     width:100%;
-    height:33%;
+    left:0;
 }
-.accordian ul{
-    margin:0;
-}
-
-@media (min-width:768px){
-    #home-trainers{
-        height:640px;
-    }
-    .accordian {
-        width: 100%; 
-        height: 640px;
-        overflow: hidden;
-    }
-
-    .accordian ul {
-        width: 100%;
-        height:100%;
-        margin:0;
-    }
-
-    .accordian li {
-        position: relative;
-        display: block;
-        width: 200px;
-        float: left;
-        
-        border-left: 1px solid #888;
-        
-        /*Transitions to give animation effect*/
-        transition: all 0.5s;
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-    }
-
-    /*.accordian ul:hover li {width: 20%;}*/
-    /*.accordian ul li:hover {width: 60%;}*/
-
-
-    .accordian li img {
-        display: block;
-        height:100%;
-        overflow: hidden;
-    }
-
-    /*Image title styles*/
-    .image_title {
-        background: rgba(0, 0, 0, 0.5);
-        position: absolute;
-        left: 0; bottom: 0; 
-        display:block;
-        
-    }
+.caption h1 {
+    margin-bottom:5px;
 }
 
 /*********** FEATURE ************/
@@ -402,36 +394,91 @@ input#home-contact-submit, #newsletter-submit{
     height:200px;
 }
 .contact-info{
-    position:absolute;
+    width:40%;
     margin-top:-190px;
 }
 .contact-socialmediaicons {
     width: 100%;
+    color:#fff;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 25px;
 }
-.socialmediaicons{
+.social-navigation a{
+    color:#fff;
+}
+.social-navigation li{
+    float:none;
+    display:inline-block;
+}
+.footermediaicons{
     margin:10px;
 }
 .contact-form, .contact-form-title{
     float:right;
 }
+@media (max-width:992px){
+    .contact-info{
+        width:100%;
+    }
+    .contact-form{
+        float:none;
+    }
+    .contact-bottom {
+    height: 1100px;
+    }
+}
 /*********** FOOTER ************/
 .site-footer{
+    background-color: rgba(0,0,0,0.7);
     padding:0;
     text-align:center;
     color:#fff;
+    height: 140px;
+    margin-top: -140px;
 }
 .site-info{
-    background-color:rgba(0,0,0,0.5);
-    height:140px;
-    margin: 0;
-    padding: 10px;
-    margin-top: -140px;
     width: 100%;
-    color:#fff;
+    color: #fff;
 }
-.site-info a{
+.site-info a, .site-title a{
+    color:#eee;
+    text-decoration: none;
+}
+.site-info a:hover, .site-title a:hover{
     color:#fff;
     text-decoration: none;
+}
+.footer-navigation {
+    width:100%;
+    padding-top:40px;
+}
+.footer-navigation ul {
+    list-style: none;
+    margin: 0;
+}
+.footer-navigation li {
+    display: inline-block;
+    margin: 0 0.4375em 0.4375em 0;
+}
+.footer-navigation a {
+    color: #eee;
+    display: block;
+}
+.footer-navigation a:hover{
+    color:#fff;
+    text-decoration: underline;
+}
+.menu-footernav-container{
+    height:30px;
+}
+@media (min-width:992px){
+    .site-info{
+        margin-top:-25px;
+    }
+    .footer-navigation{
+        padding-top:30px;
+    }
+}
+.margin{
+    margin-top:140px;
 }
