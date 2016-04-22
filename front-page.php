@@ -14,8 +14,9 @@
 				//get_template_part( 'templates/home/home', 'videolanding' );
 				get_template_part( 'templates/home/home', 'about' );
 				get_template_part( 'templates/home/home', 'classes' );
-				get_template_part( 'templates/home/home', 'trainers' );
+				
 				get_template_part( 'templates/home/home', 'features' );
+				get_template_part( 'templates/home/home', 'trainers' );
 				get_template_part( 'templates/home/home', 'pricing' );
 				get_template_part( 'templates/home/home', 'blog' );
 				get_template_part( 'templates/home/home', 'calltoaction' );

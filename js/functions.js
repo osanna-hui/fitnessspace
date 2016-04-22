@@ -197,4 +197,25 @@
 		belowEntryMetaClass( 'img.size-full' );
 		belowEntryMetaClass( 'blockquote.alignleft, blockquote.alignright' );
 	} );
+
+	$(window).scroll(function() {
+		var h = window.innerHeight;
+		console.log("height: "+h);
+		if ($(this).scrollTop() > h*2){  
+			$('#masthead').addClass("sticky");
+			
+		}else{
+			$('#masthead').removeClass("sticky");
+		}
+
+	});
+
+	/*
+	$('#menu-toggle').toggle( 
+    function() {
+        $('#content').animate({ left: 250 }, 'slow');
+    }, 
+    function() {
+        $('#content').animate({ left: 0 }, 'slow');
+    });*/
 } )( jQuery );

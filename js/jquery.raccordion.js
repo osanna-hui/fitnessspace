@@ -1,4 +1,6 @@
-﻿(function ($) {
+﻿if (window.innerWidth > 993) {
+
+(function ($) {
     $.fn.raccordion = function (options) {
         var settings = $.extend({
             speed: 700,
@@ -102,3 +104,5 @@
         });
     }
 })(jQuery);
+
+}

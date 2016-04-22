@@ -60,10 +60,16 @@ a:hover{
     color:#91B851;
 }
 .darken{
-    background-color:rgba(0,0,0,0.6);
+    background-color:rgba(0,0,0,0.4);
 }
 .green{
     color:#91B851;
+}
+.overlay{
+    background-color:rgba(255,255,255,0.75);
+    z-index:5;
+    margin-top:-115px;
+    height:305px;
 }
 .clear-button, input#home-contact-submit{
     background-color:rgba(0,0,0,0);
@@ -79,6 +85,73 @@ a:hover{
 }
 .site-main{
     margin-bottom:0;
+}
+.custom-logo{
+    width:150px;
+    height:auto;
+    padding:5px;
+}
+.main-navigation .primary-menu > li{
+    float:none;
+    display: inline-block;
+}
+#menu-toggle{
+    z-index:100;
+}
+
+@media (max-width:992px){
+    .main-navigation li, .main-navigation .primary-menu{
+        border:none;
+    }
+    .site-header-main{
+        padding:0px 30px;
+    }
+}
+@media (max-width:910px){
+    .main-navigation a{
+        padding: 0.34375em 0;
+    }
+    .main-navigation .primary-menu > li{
+        display: block;
+    }
+    .site-header-menu.toggled-on{
+        position: absolute;
+        margin-top: 0;
+        /* padding: 100px 20px 20px 20px; */
+        height: 100vh;
+        width: 100%;
+        right: 0;
+        background-color: rgba(0,0,0,0.5);
+    }
+    #site-navigation{
+        position: absolute;
+        margin-top: 0;
+        padding: 100px 20px 20px 20px;
+        height: 100vh;
+        width: 200px;
+        right: 0;
+        background-color: #fff;
+    }
+}
+/*********** STICKY HEADER ************/
+#masthead{
+    
+    z-index:100;
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+}
+#masthead.sticky {
+    position:fixed;
+    top:0;
+    width:100%;
+    height: 100px;
+    z-index: 100;
+    background-color:#fff;
+}
+@media(max-width:992px){
+    #masthead.sticky {
+        height:55px;
+    }
 }
 
 /*********** IMAGE SLIDER SWIPER ************/
@@ -104,15 +177,20 @@ a:hover{
     text-align: center;
     margin-top: 10%;
 }
-.main-navigation .primary-menu > li{
-    float:none;
-    display: inline-block;
-}
 #landing-nav a{
     color:#fff;
 }
 #landing-nav a:hover{
     color:#91B851;
+}
+#menu-landingnav-i, #menu-landingnav-i li, #menu-landingnav-v, #menu-landingnav-v li{
+    display:inline-block;
+    border:none;
+}
+@media(max-width:992px){
+    .landing-nav{
+        display:none;
+    }
 }
 
 /*********** LANDING VIDEO ************/
@@ -120,6 +198,7 @@ a:hover{
     border-right: none;
     border-left: none;
     position: relative;
+    height:100vh;
 }
 .no-video .video-container video,
 .touch .video-container video {
@@ -138,16 +217,22 @@ a:hover{
     overflow: hidden;
     background: #000;
 }
+.slider-logo{
+    display:block;
+    margin:auto;
+    width:265px;
+    height:245px;
+}
 .title-container{
     z-index: 1000;
     position: absolute;
-    top: 40%;
+    top: 30%;
     height:60%;
     width: 100%;
     text-align: center;
     color: #fff;
 }
-
+/*
 .video-container .poster img {
     width: 100%;
     bottom: 0;
@@ -163,13 +248,41 @@ a:hover{
     position: absolute;
     z-index: 0;
     bottom: 0;
+    background-size:cover;
 }
 .video-container video.fillWidth {
     height: 100%;
     width:auto;
     margin-bottom:0;
     overflow:hidden;
+}*/
+
+video#bgvid { 
+    position: absolute;
+    /*top: 50%;
+    left: 50%;*/
+    min-width: 120%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    /*-ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);*/
+    background: url(../img/Sunset-Lapse.jpg) no-repeat;
+    background-size: cover; 
 }
+@media (max-width:992px){
+    video#bgvid { 
+        min-width:250%;
+    }
+}
+@media (max-width:450px){
+    video#bgvid { 
+        min-width:320%;
+    }
+}
+
 /*********** ABOUT ************/
 #home-about{
     padding-top:250px;
@@ -214,9 +327,11 @@ a:hover{
     display:inline-block;
 }
 .trainer-button{
-    float:right;
-    margin-right: 15%;
-    margin-top: 57px;
+    margin-left: 10%;
+    vertical-align: bottom;
+}
+.trainer-button{
+    margin-left:0px;
 }
 /*********** TRAINERS ACCORDION ************/
 .accordion-wrapper {
@@ -232,9 +347,6 @@ a:hover{
     max-width:100%;
     overflow: hidden;
     display:block;
-    -moz-box-shadow: -5px 0px 5px rgba(1, 1, 1, 0.3);
-    -webkit-box-shadow: -5px 0px 5px rgba(1, 1, 1, 0.3);
-    box-shadow: -5px 0px 5px rgba(1, 1, 1, 0.3);
     position:absolute;
     cursor: pointer;
     float:left;
@@ -253,6 +365,29 @@ a:hover{
 }
 .caption h1 {
     margin-bottom:5px;
+}
+
+@media(max-width:992px){
+    #home-trainers{
+        height:1260px;
+    }
+    .slide{
+        max-height:420px;
+        position:relative;
+    }
+    .caption{
+        bottom:0;
+        padding:0;
+    }
+    .caption h1{
+        margin-bottom:0;
+    }
+    .caption h2{
+        margin-top:0;
+    }
+    .caption button{
+        margin-top:-10px;
+    }
 }
 
 /*********** FEATURE ************/
@@ -289,11 +424,18 @@ a:hover{
     padding-top:115px;
     background-position:top left;
     background-position:bottom;
+    color:#2c2c2c;
+}
+.pricing-content{
+    margin-top:-215px;
 }
 .pricing-footer{
     height:140px;
     margin-top:50px;
     padding:55px;
+    background-position: center;
+    color: #fff;
+    background-size: cover;
 }
 
 /*********** BLOG ************/
@@ -310,12 +452,12 @@ a:hover{
     margin:0;
     margin-left:-6px;
     padding:0;
-
 }
 .indv-blog-title{
-    position: relative;
-    margin: 0;
-    top: -295px;
+    position: absolute;
+    width: 295px;
+    margin: auto;
+    margin-top: -295px;
     color: #fff;
     padding: 134px 0px 134px 0px;
 }
@@ -356,6 +498,14 @@ a:hover{
 #testimonial-swiper{
     height:200px;
     margin-top:50px;
+}
+@media(max-width:992px){
+    #testimonial-swiper{
+        height:300px;
+    }
+    #home-testimonials{
+        height:600px;
+    }
 }
 
 /*********** CONTACT ************/
@@ -426,7 +576,11 @@ input#home-contact-submit, #newsletter-submit{
     .contact-bottom {
     height: 1100px;
     }
+    #newsletter-submit, #home-contact-submit{
+        width:100%;
+    }
 }
+
 /*********** FOOTER ************/
 .site-footer{
     background-color: rgba(0,0,0,0.7);

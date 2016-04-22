@@ -1,4 +1,4 @@
-<div class="home-sections title-padding center" id="home-features"> 
+<div class="home-sections title-padding center container" id="home-features"> 
 	<h1 class="section-title">FEATURES</h1>
 	<div class="row">
 		<div class="col-md-4 features">

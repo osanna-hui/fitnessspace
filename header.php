@@ -33,7 +33,7 @@
 				</div><!-- .site-branding -->
 
 				<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'footer' ) ) : ?>
-					<button id="menu-toggle" class="menu-toggle"><?php _e( 'Menu', 'fitnessspace' ); ?></button>
+					<button id="menu-toggle" class="menu-toggle"><?php _e( '<i class="fa fa-bars fa-3x" aria-hidden="true"></i>', 'fitnessspace' ); ?></button>
 
 					<div id="site-header-menu" class="site-header-menu">
 						<?php if ( has_nav_menu( 'primary' ) ) : ?>

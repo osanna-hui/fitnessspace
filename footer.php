@@ -20,7 +20,7 @@
 				<?php
 					do_action( 'fitnessspace_credits' );
 				?>
-				<span class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+				<!-- <span class="site-title"><a href="<?php echo esc_url( home_url( '' ) ); ?>"><?php bloginfo( 'name' ); ?></a></span> -->
 				<a href="<?php echo esc_url( __( 'http://www.wittycookie.ca/', 'fitnessspace' ) ); ?>"><?php printf( __( 'All Rights Reserved. %s', 'fitnessspace' ), 'FitnessSpace by WittyCookie' ); ?></a>
 			</div><!-- .site-info -->
 		</footer><!-- .site-footer -->

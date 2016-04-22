@@ -32,7 +32,7 @@ function fitnessspace_setup() {
 	 *  @since Fitness Space 1.2
 	 */
 	add_theme_support( 'custom-logo', array(
-		'height'      => 240,
+		'height'      => 140,
 		'width'       => 240,
 		'flex-height' => true,
 	) );
@@ -48,6 +48,7 @@ function fitnessspace_setup() {
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'fitnessspace' ),
+		'landing' => __( 'Landing Menu', 'fitnessspace' ),
 		'social'  => __( 'Social Links Menu', 'fitnessspace' ),
 		'footer'  => __( 'Footer Links Menu', 'fitnessspace' ),
 	) );
@@ -267,7 +268,7 @@ function fitnessspace_scripts() {
 
 	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/swiper.min.js', array(), null );
 
-	wp_enqueue_script( 'vid-script', get_template_directory_uri() . '/js/vid.js', array(), null );
+	//wp_enqueue_script( 'vid-script', get_template_directory_uri() . '/js/vid.js', array(), null );
 
 	wp_enqueue_script( 'raccordion', get_template_directory_uri() . '/js/jquery.raccordion.js', array(), null );
 

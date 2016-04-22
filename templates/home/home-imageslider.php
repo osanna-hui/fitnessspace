@@ -2,23 +2,25 @@
 	<div class="swiper-container" style="height:100%;">
         <div class="title-container">
             <div class="headline">
-                <h1>FITNESS SPACE</h1>
+                <img class="slider-logo" src="./wp-content/themes/fitness-space/img/logoslider.png"/>
+                <!-- <h1>FITNESS SPACE</h1> -->
                 <button class="clear-button">BOOK A CLASS</button>
             </div>
-            <?php if ( has_nav_menu( 'primary' ) ) : ?>
-        <div class="landing-nav">
-            <?php if ( has_nav_menu( 'primary' ) ) : ?>
-                <nav id="landing-nav" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'fitnessspace' ); ?>">
-                    <?php
-                        wp_nav_menu( array(
-                            'theme_location' => 'primary',
-                            'menu_class'     => 'primary-menu',
-                         ) );
-                    ?>
-                </nav><!-- .main-navigation -->
+            <?php if ( has_nav_menu( 'landing' ) ) : ?>
+            <div class="landing-nav">
+                <?php if ( has_nav_menu( 'landing' ) ) : ?>
+                    <nav id="landing-nav" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Landing Menu', 'fitnessspace' ); ?>">
+                        <?php
+                            wp_nav_menu( array(
+                                'theme_location' => 'landing',
+                                'menu_class'     => 'landing-menu',
+                                'menu_id'        => 'menu-landingnav-i',
+                             ) );
+                        ?>
+                    </nav><!-- .main-navigation -->
+                <?php endif; ?>
+            </div><!-- .site-header-menu -->
             <?php endif; ?>
-        </div><!-- .site-header-menu -->
-    <?php endif; ?>
         </div>
 
         <div class="swiper-wrapper">
