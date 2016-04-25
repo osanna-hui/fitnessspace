@@ -113,20 +113,20 @@ a:hover{
     }
     .main-navigation .primary-menu > li{
         display: block;
+        text-align:right;
     }
     .site-header-menu.toggled-on{
         position: absolute;
         margin-top: 0;
-        /* padding: 100px 20px 20px 20px; */
         height: 100vh;
         width: 100%;
         right: 0;
-        background-color: rgba(0,0,0,0.5);
+        background-color: rgba(0,0,0,0.6);
     }
     #site-navigation{
         position: absolute;
         margin-top: 0;
-        padding: 100px 20px 20px 20px;
+        padding: 100px 30px 20px 20px;
         height: 100vh;
         width: 200px;
         right: 0;
@@ -369,11 +369,14 @@ video#bgvid {
 
 @media(max-width:992px){
     #home-trainers{
-        height:1260px;
+        height:900px;
     }
     .slide{
-        max-height:420px;
+        max-height:300px;
         position:relative;
+    }
+    .slide img {
+        width:100%;
     }
     .caption{
         bottom:0;
@@ -535,7 +538,7 @@ input#home-contact-submit, #newsletter-submit{
     float:right;
 }
 .contact-location{
-    height:380px;
+    height: 420px;
     padding:25px;
 }
 
@@ -545,13 +548,14 @@ input#home-contact-submit, #newsletter-submit{
 }
 .contact-info{
     width:40%;
-    margin-top:-190px;
+    margin-top:-175px;
 }
 .contact-socialmediaicons {
     width: 100%;
     color:#fff;
     text-align: center;
     margin-top: 25px;
+    margin-bottom:10px;
 }
 .social-navigation a{
     color:#fff;

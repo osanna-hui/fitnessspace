@@ -8,10 +8,13 @@
 				<div class="contact-location darken">
 					<h2>LOCATION</h2>
 					<span>1234 Main Street<br/>Vancouver, BC</span>
-					<br/><br/>
+					<br/>
+					<h2>HOURS</h2>
+					<span>Mon-Fri 6:00am - 11:00pm<br/>Sat-Sun 8:00am - 8:00pm</span>
+					<br/>
 					<h2>CONTACT US</h2>
 					<span>youremail@address.com</span><br/>
-					<span>(604)777-1234</span><br/><br/>
+					<span>(604)777-1234</span><br/>
 					<div class="contact-socialmediaicons">
 
 						<?php if ( has_nav_menu( 'social' ) ) : ?>

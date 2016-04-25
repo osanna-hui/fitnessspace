@@ -200,7 +200,7 @@
 
 	$(window).scroll(function() {
 		var h = window.innerHeight;
-		console.log("height: "+h);
+		//console.log("height: "+h);
 		if ($(this).scrollTop() > h*2){  
 			$('#masthead').addClass("sticky");
 			
