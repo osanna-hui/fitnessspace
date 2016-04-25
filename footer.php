@@ -3,7 +3,7 @@
 
 		</div><!-- .site-content -->
 
-		<footer id="colophon" class="site-footer" role="contentinfo">
+		<footer id="page-footer" class="site-footer" role="contentinfo">
 			<?php if ( has_nav_menu( 'footer' ) ) : ?>
 				<nav class="footer-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Menu', 'fitnessspace' ); ?>">
 					<?php
