@@ -15,8 +15,8 @@
 	
 		<!-- chagne number of posts shown in 'settings'->'reading settings'-->
 		<!-- the loop -->
-		<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-		
+		<?php while ( $the_query->have_posts() ) : $the_query->the_post($post_count < 5); ?>
+			
 			<div class="indv-blog-grid">
 				<a href="<?php the_permalink(); ?>">
 				<?php

@@ -6,7 +6,7 @@ if ( ! function_exists( 'fitnessspace_entry_meta' ) ) :
  *
  * Create your own fitnessspace_entry_meta() function to override in a child theme.
  *
- * @since Twenty Sixteen 1.0
+ * @since Fitness Space 1.0
  */
 function fitnessspace_entry_meta() {
 	if ( 'post' === get_post_type() ) {
@@ -50,7 +50,7 @@ if ( ! function_exists( 'fitnessspace_entry_date' ) ) :
  *
  * Create your own fitnessspace_entry_date() function to override in a child theme.
  *
- * @since Twenty Sixteen 1.0
+ * @since Fitness Space 1.0
  */
 function fitnessspace_entry_date() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
@@ -80,7 +80,7 @@ if ( ! function_exists( 'fitnessspace_entry_taxonomies' ) ) :
  *
  * Create your own fitnessspace_entry_taxonomies() function to override in a child theme.
  *
- * @since Twenty Sixteen 1.0
+ * @since Fitness Space 1.0
  */
 function fitnessspace_entry_taxonomies() {
 	$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'fitnessspace' ) );
@@ -110,7 +110,7 @@ if ( ! function_exists( 'fitnessspace_post_thumbnail' ) ) :
  *
  * Create your own fitnessspace_post_thumbnail() function to override in a child theme.
  *
- * @since Twenty Sixteen 1.0
+ * @since Fitness Space 1.0
  */
 function fitnessspace_post_thumbnail() {
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
@@ -142,7 +142,7 @@ if ( ! function_exists( 'fitnessspace_excerpt' ) ) :
 	 *
 	 * Create your own fitnessspace_excerpt() function to override in a child theme.
 	 *
-	 * @since Twenty Sixteen 1.0
+	 * @since Fitness Space 1.0
 	 *
 	 * @param string $class Optional. Class string of the div element. Defaults to 'entry-summary'.
 	 */
@@ -164,7 +164,7 @@ if ( ! function_exists( 'fitnessspace_excerpt_more' ) && ! is_admin() ) :
  *
  * Create your own fitnessspace_excerpt_more() function to override in a child theme.
  *
- * @since Twenty Sixteen 1.0
+ * @since Fitness Space 1.0
  *
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
@@ -184,7 +184,7 @@ endif;
  *
  * Create your own fitnessspace_categorized_blog() function to override in a child theme.
  *
- * @since Twenty Sixteen 1.0
+ * @since Fitness Space 1.0
  *
  * @return bool True if there is more than one category, false otherwise.
  */
@@ -215,7 +215,7 @@ function fitnessspace_categorized_blog() {
 /**
  * Flushes out the transients used in fitnessspace_categorized_blog().
  *
- * @since Twenty Sixteen 1.0
+ * @since Fitness Space 1.0
  */
 function fitnessspace_category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -233,7 +233,7 @@ if ( ! function_exists( 'fitnessspace_the_custom_logo' ) ) :
  *
  * Does nothing if the custom logo is not available.
  *
- * @since Twenty Sixteen 1.2
+ * @since Fitness Space 1.2
  */
 function fitnessspace_the_custom_logo() {
 	if ( function_exists( 'the_custom_logo' ) ) {

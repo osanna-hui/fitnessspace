@@ -59,6 +59,15 @@ a:hover{
     text-decoration: none;
     color:#91B851;
 }
+.margin{
+    margin-top:140px;
+}
+.thin-margin{
+    margin-top:50px;
+}
+.no-margin{
+    margin:0;
+}
 .darken{
     background-color:rgba(0,0,0,0.4);
 }
@@ -636,7 +645,4 @@ input#home-contact-submit, #newsletter-submit{
     .footer-navigation{
         padding-top:30px;
     }
-}
-.margin{
-    margin-top:140px;
 }
