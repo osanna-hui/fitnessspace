@@ -2002,7 +2002,15 @@ body:not(.search-results) .entry-summary > :last-child,
 .left{
 	float:left;
 }
-
+@media(max-width:992px){
+	.child-img, .child-info{
+		width:100%;
+	}
+	.child-img img, .child-info img{
+		width:100%;
+		height:auto;
+	}
+}
 /*.entry-content .author-title {
 	clear: none;
 	font-size: 16px;

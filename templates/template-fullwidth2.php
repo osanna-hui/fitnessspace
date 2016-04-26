@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Parent - Full Width (Image | Text)
+ * Template Name: Full Width (Image | Text)
  *
  */
 ?>
