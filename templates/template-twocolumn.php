@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: About
+ * Template Name: Two Columns
  *
  */
 ?>
@@ -21,7 +21,7 @@
 			</header><!-- .entry-header -->
 			<?php
 		} else {?>
-			<header class="entry-header">
+			<header class="entry-header black">
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			</header><!-- .entry-header -->
 		<?php 
@@ -30,38 +30,37 @@
 
 	<div class="entry-content">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-6 page-content">
+			<!--<?php the_content(); ?>-->
+			<?php
+				$pages = get_pages('child_of='.$post->ID.'&sort_column=post_date&sort_order=desc');
+				$count = 0;
+				foreach($pages as $page)
+				{
+					$content = $page->post_content;
+					if(!$content)
+						continue;
+					/*if($count >= 3)
+						break;*/
+					$count++;
+					$content = apply_filters('the_content', $content);
 
-					<?php the_content(); ?>
-				</div>
-				<div class="col-md-6 page-thumbnail">
-					<?php fitnessspace_post_thumbnail(); ?>
+					?>
+						<div class="col-md-6 temp3-block">
+							<a href="<?php echo get_page_link($page->ID) ?>">
+								<div class="col-md-6 temp3-img">
+									<?php echo get_the_post_thumbnail( $page->ID, $size = array('300') ); ?>
+								</div>
+								<div class="col-md-6 temp3-info">
+									<h2 class="temp3-title"><?php echo $page->post_title ?></h2>
+									<?php echo $content ?>
+								</div>
+							</a>
+						</div>
+					<?php
 					
-				</div>
-				<div class="page-socialmediaicons">
-						<?php if ( has_nav_menu( 'social' ) ) : ?>
-							<nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'fitnessspace' ); ?>">
-								<?php
-									wp_nav_menu( array(
-										'theme_location' => 'social',
-										'menu_class'     => 'social-links-menu',
-										'depth'          => 1,
-										'link_before'    => '<span class="screen-reader-text">',
-										'link_after'     => '</span>',
-									) );
-								?>
-							</nav><!-- .social-navigation -->
-						<?php endif; ?>
-					</div>
-			</div>
-			<div class="row">
-				<div class="page-testimonial">
-					<?php get_template_part( 'templates/home/home', 'testimonials' );?>
-				</div>
-			</div>
-				
-		</div class="container">
+				}
+			?>		
+		</div>
 	</div><!-- .entry-content -->
 
 </article><!-- #post-## -->

@@ -13,7 +13,7 @@
 		while ( have_posts() ) : the_post();
 		?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="entry-content" id="contact-page">
+	<div class="entry-content-3" id="contact-page">
 		<div id="contact-map"></div>
 
 		<?php 
@@ -28,7 +28,7 @@
 			<div class="container">
 				<div class="contact-info col-md-6">
 					<div class="contact-location darken">
-
+						
 					<?php the_content(); ?>
 
 					<div class="contact-socialmediaicons">

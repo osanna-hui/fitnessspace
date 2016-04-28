@@ -1,5 +1,5 @@
 <div class="home-sections" id="home-imageslider">
-	<div class="swiper-container" style="height:100%;">
+	<div class="swiper-container" id="img-swiper" style="height:100%;">
         <div class="title-container">
             <div class="headline">
                 <img class="slider-logo" src="./wp-content/themes/fitness-space/img/logoslider.png"/>
@@ -51,7 +51,7 @@
 </div>
 
 <script>
-var swiper = new Swiper('.swiper-container', {
+var swiper = new Swiper('#img-swiper', {
     pagination: '.swiper-pagination',
     slidesPerView: 1,
     paginationClickable: true,

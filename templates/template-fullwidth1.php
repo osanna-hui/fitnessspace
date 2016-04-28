@@ -21,14 +21,14 @@
 			</header><!-- .entry-header -->
 			<?php
 		} else {?>
-			<header class="entry-header darken">
+			<header class="entry-header black">
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			</header><!-- .entry-header -->
 		<?php 
 		} 
 	?>
 
-	<div class="entry-content">
+	<div class="entry-content-2">
 		
 		<!--<?php the_content(); ?>-->
 		<?php
@@ -53,11 +53,10 @@
 						<div class="child-info">
 							<h2 class="child-title"><?php echo $page->post_title ?></h2>
 							<?php echo $content ?>
-							<button class="no-margin" href="<?php echo get_page_link($page->ID) ?>">BOOK NOW</button>
 						</div>
 						
 					</div>
-					<div class="thin-margin"></div>
+					<!-- <div class="thin-margin"></div> -->
 				<?php
 				} else if ($count % 2 == 0) {
 				?>
@@ -68,11 +67,10 @@
 						<div class="child-info left">
 							<h2 class="child-title"><?php echo $page->post_title ?></h2>
 							<?php echo $content ?>
-							<button class="no-margin" href="<?php echo get_page_link($page->ID) ?>">BOOK NOW</button>
 						</div>
 						
 					</div>
-					<div class="thin-margin"></div>
+					<!-- <div class="thin-margin"></div> -->
 				<?php
 				}
 			}

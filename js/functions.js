@@ -202,6 +202,13 @@
 		var h = window.innerHeight;
 		//console.log("height: "+h);
 		if ($(this).scrollTop() > h*2){  
+			$('#masthead-home').addClass("sticky");
+			
+		}else{
+			$('#masthead-home').removeClass("sticky");
+		}
+
+		if ($(this).scrollTop() > 1){  
 			$('#masthead').addClass("sticky");
 			
 		}else{

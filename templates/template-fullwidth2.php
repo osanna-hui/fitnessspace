@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Full Width (Image | Text)
+ * Template Name: Full Width (Alternating background color)
  *
  */
 ?>
@@ -21,14 +21,14 @@
 			</header><!-- .entry-header -->
 			<?php
 		} else {?>
-			<header class="entry-header darken">
+			<header class="entry-header black">
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			</header><!-- .entry-header -->
 		<?php 
 		} 
 	?>
 
-	<div class="entry-content">
+	<div class="entry-content-2">
 		
 		<!--<?php the_content(); ?>-->
 		<?php
@@ -46,38 +46,85 @@
 
 				if ($count == 1 || $count % 2 == 1){
 				?>
-					<div class="row">
-						<div class="child-img">
-							<?php echo get_the_post_thumbnail( $page->ID, $size = array('960', '500') ); ?>
+					<div class="row black">
+						<div class="temp2-img">
+							<?php echo get_the_post_thumbnail( $page->ID, $size = array('1120') ); ?>
 						</div>
-						<div class="child-info">
-							<h2 class="child-title"><?php echo $page->post_title ?></h2>
+						<div class="temp2-info">
+							<h1 class="temp2-title center"><?php echo $page->post_title ?></h1>
 							<?php echo $content ?>
-							<button class="no-margin" href="<?php echo get_page_link($page->ID) ?>">BOOK NOW</button>
 						</div>
 						
 					</div>
-					<div class="thin-margin"></div>
 				<?php
 				} else if ($count % 2 == 0) {
 				?>
-					<div class="row">
-						<div class="child-img right">
-							<?php echo get_the_post_thumbnail( $page->ID, $size = array('960', '500') ); ?>
+					<div class="row white">
+						<div class="temp2-img">
+							<?php echo get_the_post_thumbnail( $page->ID, $size = array('1120') ); ?>
 						</div>
-						<div class="child-info left">
-							<h2 class="child-title"><?php echo $page->post_title ?></h2>
+						<div class="temp2-info white">
+							<h1 class="temp2-title center"><?php echo $page->post_title ?></h1>
 							<?php echo $content ?>
-							<button class="no-margin" href="<?php echo get_page_link($page->ID) ?>">BOOK NOW</button>
 						</div>
 						
 					</div>
-					<div class="thin-margin"></div>
+
 				<?php
 				}
-			}
-		?>
 				
+			}
+		?><!-- get_pages -->
+		<div class="tips center swiper-container" id="tips-swiper">
+	        <div class="swiper-wrapper">
+				<?php $args = array(
+					'posts_per_page'   => 5,
+					'offset'           => 0,
+					'category_name'    => 'Tips',
+					'orderby'          => 'date',
+					'order'            => 'DESC',
+					'post_type'        => 'post',
+					'post_status'      => 'publish',
+					'suppress_filters' => true 
+				);
+				$posts_array = get_posts( $args ); 
+				$posts = array();
+
+				foreach ( $posts_array as $post ) : setup_postdata( $post ); ?>
+					
+			        	<div class="swiper-slide padding-top" style="background-image:url(<?php the_post_thumbnail_url(); ?>); background-size:cover; background-position-y:60%;">
+			        		<h1>NUTRITION AND TRAINING TIPS</h1>
+			        		<!-- <a href="<?php the_permalink(); ?>"> -->
+							<!-- <h2 class="padding-top"><?php the_title(); ?></h2> -->
+							<div class="container padding-top"><?php the_content( "READ MORE..." );?></div>
+							<!-- </a> -->
+							<div class="contact-socialmediaicons" id="tips-socialmediaicons">
+								<?php if ( has_nav_menu( 'social' ) ) : ?>
+									<nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'fitnessspace' ); ?>">
+										<?php
+											wp_nav_menu( array(
+												'theme_location' => 'social',
+												'menu_class'     => 'social-links-menu',
+												'menu_id'		 => 'tips-socialnav',
+												'depth'          => 1,
+												'link_before'    => '<span class="screen-reader-text">',
+												'link_after'     => '</span>',
+											) );
+										?>
+									</nav><!-- .social-navigation -->
+								<?php endif; ?>
+							</div>
+						</div>
+							
+					
+				<?php endforeach; 
+				wp_reset_postdata();?>
+			</div><!-- swiper -->
+
+			
+		
+		</div><!-- get_posts -->
+
 	</div><!-- .entry-content -->
 
 </article><!-- #post-## -->
@@ -101,3 +148,18 @@
 <?php get_sidebar(); ?>
 <div class="margin"></div>
 <?php get_footer(); ?>
+
+<script>
+var swiper = new Swiper('#tips-swiper', {
+    pagination: '.swiper-pagination',
+    slidesPerView: 1,
+    paginationClickable: true,
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    spaceBetween: 30,
+    effect: 'fade',
+    autoplay: 3500,
+    autoplayDisableOnInteraction: false,
+    loop: true
+});
+</script>
