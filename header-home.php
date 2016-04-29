@@ -37,7 +37,7 @@
 
 					endif ?>
 
-			<div id="masthead-home" class="site-header" role="banner">
+			<div id="masthead" class="site-header" role="banner">
 				<div class="site-header-main">
 					<div class="site-branding">
 						<?php fitnessspace_the_custom_logo(); ?>

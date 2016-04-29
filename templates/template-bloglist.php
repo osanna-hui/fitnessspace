@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: About
+ * Template Name: Blog List
  *
  */
 ?>
@@ -21,7 +21,7 @@
 			</header><!-- .entry-header -->
 			<?php
 		} else {?>
-			<header class="entry-header">
+			<header class="entry-header black">
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			</header><!-- .entry-header -->
 		<?php 
@@ -29,39 +29,40 @@
 	?>
 
 	<div class="entry-content">
-		<div class="container">
-			<div class="row">
-				<?php the_content(); ?>
-			</div><!-- row -->
-			<div class="row">
-				<div class="page-socialmediaicons">
-					<?php if ( has_nav_menu( 'social' ) ) : ?>
-						<nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'fitnessspace' ); ?>">
-							<?php
-								wp_nav_menu( array(
-									'theme_location' => 'social',
-									'menu_class'     => 'social-links-menu',
-									'depth'          => 1,
-									'link_before'    => '<span class="screen-reader-text">',
-									'link_after'     => '</span>',
-								) );
-							?>
-						</nav><!-- .social-navigation -->
-					<?php endif; ?>
-				</div><!-- .page-socialmediaicons -->
-			</div><!-- row -->
-
-			<div class="row">
+		<div class="blog-grid container">
+			<?php
+			$args = array( 
+				'posts_per_page' => 5, 
+				'order'=> 'DESC', 
+				'orderby' => 'date' );
+				$postslist = get_posts( $args );
 				
+			foreach ( $postslist as $post ) :
+			  setup_postdata( $post ); ?> 
 
-			</div><!-- row -->
-			<div class="row">
-				<div class="page-testimonial">
-					<?php get_template_part( 'templates/home/home', 'testimonials' );?>
+				<div class="indv-blog-grid">
+					<a href="<?php the_permalink(); ?>">
+					<?php
+						if ( has_post_thumbnail() ) {
+						    the_post_thumbnail();
+						} else {?>
+							<img src="http://localhost:8888/wordpress/wp-content/uploads/2016/04/blog3.jpg" alt="placeholder-img"/>
+						<?php
+						}
+					?>
+					<h2 class="indv-blog-title"><?php the_title(); ?></h2>
+					</a>
 				</div>
-			</div>
+			<?php
+			endforeach; 
+			wp_reset_postdata();
+			?><!-- the loop -->
+	</div><!-- blog grid -->
+
+		
+		
+		
 				
-		</div><!-- .container -->
 	</div><!-- .entry-content -->
 
 </article><!-- #post-## -->

@@ -45,7 +45,7 @@ function fitnessspace_setup() {
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 1200, 9999 );
 
-	// This theme uses wp_nav_menu() in two locations.
+	// This theme uses wp_nav_menu() in four locations.
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'fitnessspace' ),
 		'landing' => __( 'Landing Menu', 'fitnessspace' ),

@@ -48,7 +48,7 @@
 				?>
 					<div class="row">
 						<div class="child-img">
-							<?php echo get_the_post_thumbnail( $page->ID, $size = array('960', '500') ); ?>
+							<?php echo get_the_post_thumbnail( $page->ID, $size = array('960') ); ?>
 						</div>
 						<div class="child-info">
 							<h2 class="child-title"><?php echo $page->post_title ?></h2>

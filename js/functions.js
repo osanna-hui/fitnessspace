@@ -63,6 +63,7 @@
 
 		menuToggle.on( 'click.fitnessspace', function() {
 			$( this ).add( siteHeaderMenu ).toggleClass( 'toggled-on' );
+			console.log("toggle");
 
 			// jscs:disable
 			$( this ).add( siteNavigation ).add( socialNavigation ).attr( 'aria-expanded', $( this ).add( siteNavigation ).add( socialNavigation ).attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );
@@ -202,10 +203,10 @@
 		var h = window.innerHeight;
 		//console.log("height: "+h);
 		if ($(this).scrollTop() > h*2){  
-			$('#masthead-home').addClass("sticky");
+			$('.masthead-home').addClass("sticky");
 			
 		}else{
-			$('#masthead-home').removeClass("sticky");
+			$('.masthead-home').removeClass("sticky");
 		}
 
 		if ($(this).scrollTop() > 1){  

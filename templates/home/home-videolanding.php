@@ -9,7 +9,7 @@
             <?php if ( has_nav_menu( 'landing' ) ) : ?>
             <div class="landing-nav">
                 <?php if ( has_nav_menu( 'landing' ) ) : ?>
-                    <nav id="landing-nav" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Landing Menu', 'fitnessspace' ); ?>">
+                    <nav id="landing-nav" class="landing-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Landing Menu', 'fitnessspace' ); ?>">
                         <?php
                             wp_nav_menu( array(
                                 'theme_location' => 'landing',

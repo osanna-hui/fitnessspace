@@ -18,10 +18,11 @@
 
 		<?php 
 			if ( has_post_thumbnail() ) {?>
-			<div id="contact-page-bottom" class="contact-bottom" style="background-size:cover; background-image:url(<?php the_post_thumbnail_url();?>">
+				<div id="contact-page-bottom" class="contact-bottom" style="background-size:cover; background-image:url(<?php the_post_thumbnail_url();?>">
 			<?php
-		} else {?>
-			<div id="contact-page-bottom" class="contact-bottom">
+			} else {
+			?>
+			<div id="contact-page-bottom" class="contact-bottom" style="background-color:#999;">
 		<?php 
 		} 
 		?>
