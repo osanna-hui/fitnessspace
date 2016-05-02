@@ -16,7 +16,7 @@
 	?>
 	<?php fitnessspace_excerpt(); ?>
 
-	<?php fitnessspace_post_thumbnail(); ?>
+	<?php /*fitnessspace_post_thumbnail();*/ ?>
 
 	<div class="entry-content">
 		<div class="container">
@@ -38,10 +38,10 @@
 			?>
 		</div>
 	</div><!-- .entry-content -->
-<!-- 
+ 
 	<footer class="entry-footer">
-		<?php fitnessspace_entry_meta(); ?> -->
-		<!--<?php
+		<?php fitnessspace_entry_meta(); ?> 
+		<?php
 			edit_post_link(
 				sprintf(
 					/* translators: %s: Name of current post */
@@ -52,5 +52,5 @@
 				'</span>'
 			);
 		?>
-	</footer>--><!-- .entry-footer -->
+	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

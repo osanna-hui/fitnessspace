@@ -30,5 +30,5 @@
 		
 	</div>
 
-	<button>READ MORE</button>
+	<button class="">READ MORE</button>
 </div>

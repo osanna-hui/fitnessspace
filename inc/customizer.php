@@ -5,41 +5,14 @@ function fitnessspace_custom_header_and_background() {
 	$default_background_color = trim( $color_scheme[0], '#' );
 	$default_text_color       = trim( $color_scheme[3], '#' );
 
-	/**
-	 * Filter the arguments used when adding 'custom-background' support in Fitness Space.
-	 *
-	 * @since Fitness Space 1.0
-	 *
-	 * @param array $args {
-	 *     An array of custom-background support arguments.
-	 *
-	 *     @type string $default-color Default color of the background.
-	 * }
-	 */
 	add_theme_support( 'custom-background', apply_filters( 'fitnessspace_custom_background_args', array(
 		'default-color' => $default_background_color,
 	) ) );
 
-	/**
-	 * Filter the arguments used when adding 'custom-header' support in Fitness Space.
-	 *
-	 * @since Fitness Space 1.0
-	 *
-	 * @param array $args {
-	 *     An array of custom-header support arguments.
-	 *
-	 *     @type string $default-text-color Default color of the header text.
-	 *     @type int      $width            Width in pixels of the custom header image. Default 1200.
-	 *     @type int      $height           Height in pixels of the custom header image. Default 280.
-	 *     @type bool     $flex-height      Whether to allow flexible-height header images. Default true.
-	 *     @type callable $wp-head-callback Callback function used to style the header image and text
-	 *                                      displayed on the blog.
-	 * }
-	 */
 	add_theme_support( 'custom-header', apply_filters( 'fitnessspace_custom_header_args', array(
 		'default-text-color'     => $default_text_color,
 		'width'                  => 1200,
-		'height'                 => 280,
+		'height'                 => 55,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'fitnessspace_header_style',
 	) ) );
@@ -47,22 +20,11 @@ function fitnessspace_custom_header_and_background() {
 add_action( 'after_setup_theme', 'fitnessspace_custom_header_and_background' );
 
 if ( ! function_exists( 'fitnessspace_header_style' ) ) :
-/**
- * Styles the header text displayed on the site.
- *
- * Create your own fitnessspace_header_style() function to override in a child theme.
- *
- * @since Fitness Space 1.0
- *
- * @see fitnessspace_custom_header_and_background().
- */
+
 function fitnessspace_header_style() {
-	// If the header text option is untouched, let's bail.
 	if ( display_header_text() ) {
 		return;
 	}
-
-	// If the header text has been hidden.
 	?>
 	<style type="text/css" id="fitnessspace-header-css">
 		.site-branding {
@@ -82,9 +44,6 @@ endif; // fitnessspace_header_style
 /**
  * Adds postMessage support for site title and description for the Customizer.
  *
- * @since Fitness Space 1.0
- *
- * @param WP_Customize_Manager $wp_customize The Customizer object.
  */
 function fitnessspace_customize_register( $wp_customize ) {
 	$color_scheme = fitnessspace_get_color_scheme();
@@ -170,89 +129,60 @@ function fitnessspace_customize_register( $wp_customize ) {
 		'label'       => __( 'Secondary Text Color', 'fitnessspace' ),
 		'section'     => 'colors',
 	) ) );
+
+	// Add hover effect color setting and control.
+	$wp_customize->add_setting( 'hover_filter_color', array(
+		'default'           => $color_scheme[5],
+		'transport'         => 'postMessage',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'hover_filter_color', array(
+		'label'       => __( 'Hover Filter Color', 'fitnessspace' ),
+		'section'     => 'colors',
+	) ) );
 }
 add_action( 'customize_register', 'fitnessspace_customize_register', 11 );
 
-/**
- * Render the site title for the selective refresh partial.
- *
- * @since Fitness Space 1.2
- * @see fitnessspace_customize_register()
- *
- * @return void
- */
 function fitnessspace_customize_partial_blogname() {
 	bloginfo( 'name' );
 }
 
-/**
- * Render the site tagline for the selective refresh partial.
- *
- * @since Fitness Space 1.2
- * @see fitnessspace_customize_register()
- *
- * @return void
- */
 function fitnessspace_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
 
 /**
  * Registers color schemes for Fitness Space.
- *
- * Can be filtered with {@see 'fitnessspace_color_schemes'}.
- *
  * The order of colors in a colors array:
  * 1. Main Background Color.
  * 2. Page Background Color.
  * 3. Link Color.
  * 4. Main Text Color.
  * 5. Secondary Text Color.
- *
- * @since Fitness Space 1.0
- *
- * @return array An associative array of color scheme options.
+ * 6. Hover Filter Color.
  */
 function fitnessspace_get_color_schemes() {
-	/**
-	 * Filter the color schemes registered for use with Fitness Space.
-	 *
-	 * The default schemes include 'default', 'dark', 'gray', 'red', and 'yellow'.
-	 *
-	 * @since Fitness Space 1.0
-	 *
-	 * @param array $schemes {
-	 *     Associative array of color schemes data.
-	 *
-	 *     @type array $slug {
-	 *         Associative array of information for setting up the color scheme.
-	 *
-	 *         @type string $label  Color scheme label.
-	 *         @type array  $colors HEX codes for default colors prepended with a hash symbol ('#').
-	 *                              Colors are defined in the following order: Main background, page
-	 *                              background, link, main text, secondary text.
-	 *     }
-	 * }
-	 */
 	return apply_filters( 'fitnessspace_color_schemes', array(
 		'default' => array(
-			'label'  => __( 'Default', 'fitnessspace' ),
+			'label'  => __( 'default', 'fitnessspace' ),
 			'colors' => array(
-				'#1a1a1a',
 				'#ffffff',
-				'#007acc',
-				'#1a1a1a',
-				'#686868',
+				'#ffffff',
+				'#91b851',
+				'#2c2c2c',
+				'#ffffff',
+				'rgba(0,0,0,0.75)',
 			),
 		),
 		'dark' => array(
 			'label'  => __( 'Dark', 'fitnessspace' ),
 			'colors' => array(
-				'#262626',
-				'#1a1a1a',
-				'#9adffd',
-				'#e5e5e5',
+				'#2c2c2c',
+				'#2c2c2c',
+				'#91b851',
+				'#ffffff',
 				'#c1c1c1',
+				'rgba(255,255,255,0.75)',
 			),
 		),
 		'gray' => array(
@@ -263,41 +193,14 @@ function fitnessspace_get_color_schemes() {
 				'#c7c7c7',
 				'#f2f2f2',
 				'#f2f2f2',
-			),
-		),
-		'red' => array(
-			'label'  => __( 'Red', 'fitnessspace' ),
-			'colors' => array(
-				'#ffffff',
-				'#ff675f',
-				'#640c1f',
-				'#402b30',
-				'#402b30',
-			),
-		),
-		'yellow' => array(
-			'label'  => __( 'Yellow', 'fitnessspace' ),
-			'colors' => array(
-				'#3b3721',
-				'#ffef8e',
-				'#774e24',
-				'#3b3721',
-				'#5b4d3e',
+				'rgba(255,255,255,0.75)',
 			),
 		),
 	) );
 }
 
 if ( ! function_exists( 'fitnessspace_get_color_scheme' ) ) :
-/**
- * Retrieves the current Fitness Space color scheme.
- *
- * Create your own fitnessspace_get_color_scheme() function to override in a child theme.
- *
- * @since Fitness Space 1.0
- *
- * @return array An associative array of either the current or default color scheme HEX values.
- */
+
 function fitnessspace_get_color_scheme() {
 	$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
 	$color_schemes       = fitnessspace_get_color_schemes();
@@ -311,16 +214,7 @@ function fitnessspace_get_color_scheme() {
 endif; // fitnessspace_get_color_scheme
 
 if ( ! function_exists( 'fitnessspace_get_color_scheme_choices' ) ) :
-/**
- * Retrieves an array of color scheme choices registered for Fitness Space.
- *
- * Create your own fitnessspace_get_color_scheme_choices() function to override
- * in a child theme.
- *
- * @since Fitness Space 1.0
- *
- * @return array Array of color schemes.
- */
+
 function fitnessspace_get_color_scheme_choices() {
 	$color_schemes                = fitnessspace_get_color_schemes();
 	$color_scheme_control_options = array();
@@ -335,17 +229,7 @@ endif; // fitnessspace_get_color_scheme_choices
 
 
 if ( ! function_exists( 'fitnessspace_sanitize_color_scheme' ) ) :
-/**
- * Handles sanitization for Fitness Space color schemes.
- *
- * Create your own fitnessspace_sanitize_color_scheme() function to override
- * in a child theme.
- *
- * @since Fitness Space 1.0
- *
- * @param string $value Color scheme name value.
- * @return string Color scheme name.
- */
+
 function fitnessspace_sanitize_color_scheme( $value ) {
 	$color_schemes = fitnessspace_get_color_scheme_choices();
 
@@ -360,9 +244,6 @@ endif; // fitnessspace_sanitize_color_scheme
 /**
  * Enqueues front-end CSS for color scheme.
  *
- * @since Fitness Space 1.0
- *
- * @see wp_add_inline_style()
  */
 function fitnessspace_color_scheme_css() {
 	$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
@@ -376,6 +257,7 @@ function fitnessspace_color_scheme_css() {
 
 	// Convert main text hex color to rgba.
 	$color_textcolor_rgb = fitnessspace_hex2rgb( $color_scheme[3] );
+	$color_filtercolor_rgb = fitnessspace_hex2rgb( $color_scheme[5] );
 
 	// If the rgba values are empty return early.
 	if ( empty( $color_textcolor_rgb ) ) {
@@ -389,6 +271,7 @@ function fitnessspace_color_scheme_css() {
 		'link_color'            => $color_scheme[2],
 		'main_text_color'       => $color_scheme[3],
 		'secondary_text_color'  => $color_scheme[4],
+		'hover_filter_color'    => $color_scheme[5],
 		'border_color'          => vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.2)', $color_textcolor_rgb ),
 
 	);
@@ -404,7 +287,6 @@ add_action( 'wp_enqueue_scripts', 'fitnessspace_color_scheme_css' );
  *
  * Passes color scheme data as colorScheme global.
  *
- * @since Fitness Space 1.0
  */
 function fitnessspace_customize_control_js() {
 	wp_enqueue_script( 'color-scheme-control', get_template_directory_uri() . '/js/color-scheme-control.js', array( 'customize-controls', 'iris', 'underscore', 'wp-util' ), '20160412', true );
@@ -415,7 +297,6 @@ add_action( 'customize_controls_enqueue_scripts', 'fitnessspace_customize_contro
 /**
  * Binds JS handlers to make the Customizer preview reload changes asynchronously.
  *
- * @since Fitness Space 1.0
  */
 function fitnessspace_customize_preview_js() {
 	wp_enqueue_script( 'fitnessspace-customize-preview', get_template_directory_uri() . '/js/customize-preview.js', array( 'customize-preview' ), '20160412', true );
@@ -424,11 +305,6 @@ add_action( 'customize_preview_init', 'fitnessspace_customize_preview_js' );
 
 /**
  * Returns CSS for the color schemes.
- *
- * @since Fitness Space 1.0
- *
- * @param array $colors Color scheme colors.
- * @return string Color scheme CSS.
  */
 function fitnessspace_get_color_scheme_css( $colors ) {
 	$colors = wp_parse_args( $colors, array(
@@ -437,6 +313,7 @@ function fitnessspace_get_color_scheme_css( $colors ) {
 		'link_color'            => '',
 		'main_text_color'       => '',
 		'secondary_text_color'  => '',
+		'hover_filter_color'    => '',
 		'border_color'          => '',
 	) );
 
@@ -453,41 +330,29 @@ function fitnessspace_get_color_scheme_css( $colors ) {
 		background-color: {$colors['page_background_color']};
 	}
 
+	
+
+	/* Link Color */
 	mark,
 	ins,
-	button,
-	button[disabled]:hover,
-	button[disabled]:focus,
-	input[type="button"],
-	input[type="button"][disabled]:hover,
-	input[type="button"][disabled]:focus,
-	input[type="reset"],
-	input[type="reset"][disabled]:hover,
-	input[type="reset"][disabled]:focus,
-	input[type="submit"],
-	input[type="submit"][disabled]:hover,
-	input[type="submit"][disabled]:focus,
-	.menu-toggle.toggled-on,
-	.menu-toggle.toggled-on:hover,
-	.menu-toggle.toggled-on:focus,
-	.pagination .prev,
-	.pagination .next,
+	button:hover,
+	button:focus,
+	input[type="button"]:hover,
+	input[type="button"]:focus,
+	input[type="reset"]:hover,
+	input[type="reset"]:focus,
+	input[type="submit"]:hover,
+	input[type="submit"]:focus,
 	.pagination .prev:hover,
 	.pagination .prev:focus,
 	.pagination .next:hover,
 	.pagination .next:focus,
-	.pagination .nav-links:before,
-	.pagination .nav-links:after,
 	.widget_calendar tbody a,
-	.widget_calendar tbody a:hover,
-	.widget_calendar tbody a:focus,
-	.page-links a,
 	.page-links a:hover,
 	.page-links a:focus {
-		color: {$colors['page_background_color']};
+		background-color: {$colors['link_color']};
 	}
 
-	/* Link Color */
 	.menu-toggle:hover,
 	.menu-toggle:focus,
 	a,
@@ -520,6 +385,22 @@ function fitnessspace_get_color_scheme_css( $colors ) {
 		color: {$colors['link_color']};
 	}
 
+	blockquote,
+	.menu-toggle.toggled-on,
+	.menu-toggle.toggled-on:hover,
+	.menu-toggle.toggled-on:focus,
+	.post-navigation,
+	.post-navigation div + div,
+	.pagination,
+	.widget,
+	.page-header,
+	.page-links a,
+	.comments-title,
+	.comment-reply-title {
+		border-color: {$colors['link_color']};
+	}
+
+	/* Main Text Color */
 	mark,
 	ins,
 	button:hover,
@@ -537,7 +418,7 @@ function fitnessspace_get_color_scheme_css( $colors ) {
 	.widget_calendar tbody a,
 	.page-links a:hover,
 	.page-links a:focus {
-		background-color: {$colors['link_color']};
+		background-color: {$colors['main_text_color']};
 	}
 
 	input[type="text"]:focus,
@@ -550,10 +431,8 @@ function fitnessspace_get_color_scheme_css( $colors ) {
 	.tagcloud a:focus,
 	.menu-toggle:hover,
 	.menu-toggle:focus {
-		border-color: {$colors['link_color']};
+		border-color: {$colors['main_text_color']};
 	}
-
-	/* Main Text Color */
 	body,
 	blockquote cite,
 	blockquote small,
@@ -574,20 +453,15 @@ function fitnessspace_get_color_scheme_css( $colors ) {
 		color: {$colors['main_text_color']};
 	}
 
-	blockquote,
-	.menu-toggle.toggled-on,
-	.menu-toggle.toggled-on:hover,
-	.menu-toggle.toggled-on:focus,
-	.post-navigation,
-	.post-navigation div + div,
-	.pagination,
-	.widget,
-	.page-header,
-	.page-links a,
-	.comments-title,
-	.comment-reply-title {
-		border-color: {$colors['main_text_color']};
-	}
+
+
+
+	/* Secondary Text Color */
+
+	/**
+	 * IE8 and earlier will drop any block with CSS3 selectors.
+	 * Do not combine these styles with the next block.
+	 */
 
 	button,
 	button[disabled]:hover,
@@ -609,15 +483,9 @@ function fitnessspace_get_color_scheme_css( $colors ) {
 	.pagination .prev,
 	.pagination .next,
 	.page-links a {
-		background-color: {$colors['main_text_color']};
+		color: {$colors['secondary_text_color']};
 	}
 
-	/* Secondary Text Color */
-
-	/**
-	 * IE8 and earlier will drop any block with CSS3 selectors.
-	 * Do not combine these styles with the next block.
-	 */
 	body:not(.search-results) .entry-summary {
 		color: {$colors['secondary_text_color']};
 	}
@@ -711,18 +579,9 @@ function fitnessspace_get_color_scheme_css( $colors ) {
 			color: {$colors['link_color']};
 		}
 
-		.main-navigation ul ul,
-		.main-navigation ul ul li {
-			border-color: {$colors['border_color']};
-		}
-
 		.main-navigation ul ul:before {
 			border-top-color: {$colors['border_color']};
 			border-bottom-color: {$colors['border_color']};
-		}
-
-		.main-navigation ul ul li {
-			background-color: {$colors['page_background_color']};
 		}
 
 		.main-navigation ul ul:after {
@@ -750,6 +609,7 @@ function fitnessspace_color_scheme_css_template() {
 		'link_color'            => '{{ data.link_color }}',
 		'main_text_color'       => '{{ data.main_text_color }}',
 		'secondary_text_color'  => '{{ data.secondary_text_color }}',
+		'hover_filter_color'  => '{{ data.hover_filter_color }}',
 		'border_color'          => '{{ data.border_color }}',
 	);
 	?>
@@ -782,40 +642,11 @@ function fitnessspace_page_background_color_css() {
 		.site {
 			background-color: %1$s;
 		}
-
-		mark,
-		ins,
-		button,
-		button[disabled]:hover,
-		button[disabled]:focus,
-		input[type="button"],
-		input[type="button"][disabled]:hover,
-		input[type="button"][disabled]:focus,
-		input[type="reset"],
-		input[type="reset"][disabled]:hover,
-		input[type="reset"][disabled]:focus,
-		input[type="submit"],
-		input[type="submit"][disabled]:hover,
-		input[type="submit"][disabled]:focus,
-		.menu-toggle.toggled-on,
-		.menu-toggle.toggled-on:hover,
-		.menu-toggle.toggled-on:focus,
-		.pagination .prev,
-		.pagination .next,
-		.pagination .prev:hover,
-		.pagination .prev:focus,
-		.pagination .next:hover,
-		.pagination .next:focus,
-		.pagination .nav-links:before,
-		.pagination .nav-links:after,
-		.widget_calendar tbody a,
-		.widget_calendar tbody a:hover,
-		.widget_calendar tbody a:focus,
-		.page-links a,
-		.page-links a:hover,
-		.page-links a:focus {
-			color: %1$s;
+		#masthead.sticky, .masthead-home.sticky{
+			background-color: %1$s;
 		}
+
+
 
 		@media screen and (min-width: 56.875em) {
 			.main-navigation ul ul li {
@@ -852,6 +683,42 @@ function fitnessspace_link_color_css() {
 
 	$css = '
 		/* Custom Link Color */
+
+		mark,
+		ins,
+		button,
+		button.green-button,
+		button[disabled]:hover,
+		button[disabled]:focus,
+		input[type="button"],
+		input[type="button"][disabled]:hover,
+		input[type="button"][disabled]:focus,
+		input[type="reset"],
+		input[type="reset"][disabled]:hover,
+		input[type="reset"][disabled]:focus,
+		input[type="submit"],
+		input[type="submit"][disabled]:hover,
+		input[type="submit"][disabled]:focus,
+		.menu-toggle.toggled-on,
+		.menu-toggle.toggled-on:hover,
+		.menu-toggle.toggled-on:focus,
+		.pagination .prev,
+		.pagination .next,
+		.pagination .prev:hover,
+		.pagination .prev:focus,
+		.pagination .next:hover,
+		.pagination .next:focus,
+		.pagination .nav-links:before,
+		.pagination .nav-links:after,
+		.widget_calendar tbody a,
+		.widget_calendar tbody a:hover,
+		.widget_calendar tbody a:focus,
+		.page-links a,
+		.page-links a:hover,
+		.page-links a:focus {
+			color: %1$s; !important;
+		}
+
 		.menu-toggle:hover,
 		.menu-toggle:focus,
 		a,
@@ -904,25 +771,34 @@ function fitnessspace_link_color_css() {
 			background-color: %1$s;
 		}
 
-		input[type="text"]:focus,
-		input[type="email"]:focus,
-		input[type="url"]:focus,
-		input[type="password"]:focus,
-		input[type="search"]:focus,
-		textarea:focus,
-		.tagcloud a:hover,
-		.tagcloud a:focus,
-		.menu-toggle:hover,
-		.menu-toggle:focus {
-			border-color: %1$s;
+		button,
+		button[disabled]:hover,
+		button[disabled]:focus,
+		input[type="button"],
+		input[type="button"][disabled]:hover,
+		input[type="button"][disabled]:focus,
+		input[type="reset"],
+		input[type="reset"][disabled]:hover,
+		input[type="reset"][disabled]:focus,
+		input[type="submit"],
+		input[type="submit"][disabled]:hover,
+		input[type="submit"][disabled]:focus,
+		.menu-toggle.toggled-on,
+		.menu-toggle.toggled-on:hover,
+		.menu-toggle.toggled-on:focus,
+		.pagination:before,
+		.pagination:after,
+		.pagination .prev,
+		.pagination .next,
+		.page-links a {
+			background-color: %1$s;
 		}
 
-		@media screen and (min-width: 56.875em) {
-			.main-navigation li:hover > a,
-			.main-navigation li.focus > a {
-				color: %1$s;
-			}
+		.main-navigation .current-menu-item > a, .main-navigation .current-menu-ancestor > a, .main-navigation li:hover > a, .main-navigation li.focus > a, .site-branding .site-title a:hover, .site-branding .site-title a:focus
+		{
+			color: %1$s;
 		}
+
 	';
 
 	wp_add_inline_style( 'fitnessspace-style', sprintf( $css, $link_color ) );
@@ -959,6 +835,20 @@ function fitnessspace_main_text_color_css() {
 
 	$css = '
 		/* Custom Main Text Color */
+
+		input[type="text"]:focus,
+		input[type="email"]:focus,
+		input[type="url"]:focus,
+		input[type="password"]:focus,
+		input[type="search"]:focus,
+		textarea:focus,
+		.tagcloud a:hover,
+		.tagcloud a:focus,
+		.menu-toggle:hover,
+		.menu-toggle:focus {
+			border-color: %1$s;
+		}
+
 		body,
 		blockquote cite,
 		blockquote small,
@@ -992,29 +882,6 @@ function fitnessspace_main_text_color_css() {
 		.comments-title,
 		.comment-reply-title {
 			border-color: %1$s;
-		}
-
-		button,
-		button[disabled]:hover,
-		button[disabled]:focus,
-		input[type="button"],
-		input[type="button"][disabled]:hover,
-		input[type="button"][disabled]:focus,
-		input[type="reset"],
-		input[type="reset"][disabled]:hover,
-		input[type="reset"][disabled]:focus,
-		input[type="submit"],
-		input[type="submit"][disabled]:hover,
-		input[type="submit"][disabled]:focus,
-		.menu-toggle.toggled-on,
-		.menu-toggle.toggled-on:hover,
-		.menu-toggle.toggled-on:focus,
-		.pagination:before,
-		.pagination:after,
-		.pagination .prev,
-		.pagination .next,
-		.page-links a {
-			background-color: %1$s;
 		}
 
 		/* Border Color */
@@ -1059,47 +926,6 @@ function fitnessspace_main_text_color_css() {
 			background-color: %2$s;
 		}
 
-		@media screen and (min-width: 56.875em) {
-			.main-navigation ul ul,
-			.main-navigation ul ul li {
-				border-color: %2$s;
-			}
-
-			.main-navigation ul ul:before {
-				border-top-color: %2$s;
-				border-bottom-color: %2$s;
-			}
-		}
-	';
-
-	wp_add_inline_style( 'fitnessspace-style', sprintf( $css, $main_text_color, $border_color ) );
-}
-add_action( 'wp_enqueue_scripts', 'fitnessspace_main_text_color_css', 11 );
-
-/**
- * Enqueues front-end CSS for the secondary text color.
- *
- * @since Fitness Space 1.0
- *
- * @see wp_add_inline_style()
- */
-function fitnessspace_secondary_text_color_css() {
-	$color_scheme    = fitnessspace_get_color_scheme();
-	$default_color   = $color_scheme[4];
-	$secondary_text_color = get_theme_mod( 'secondary_text_color', $default_color );
-
-	// Don't do anything if the current color is the default.
-	if ( $secondary_text_color === $default_color ) {
-		return;
-	}
-
-	$css = '
-		/* Custom Secondary Text Color */
-
-		/**
-		 * IE8 and earlier will drop any block with CSS3 selectors.
-		 * Do not combine these styles with the next block.
-		 */
 		body:not(.search-results) .entry-summary {
 			color: %1$s;
 		}
@@ -1144,6 +970,92 @@ function fitnessspace_secondary_text_color_css() {
 		.widget_calendar tbody a:focus {
 			background-color: %1$s;
 		}
+
+	';
+
+	wp_add_inline_style( 'fitnessspace-style', sprintf( $css, $main_text_color, $border_color ) );
+}
+add_action( 'wp_enqueue_scripts', 'fitnessspace_main_text_color_css', 11 );
+
+/**
+ * Enqueues front-end CSS for the secondary text color.
+ *
+ * @since Fitness Space 1.0
+ *
+ * @see wp_add_inline_style()
+ */
+function fitnessspace_secondary_text_color_css() {
+	$color_scheme    = fitnessspace_get_color_scheme();
+	$default_color   = $color_scheme[4];
+	$secondary_text_color = get_theme_mod( 'secondary_text_color', $default_color );
+
+	// Don't do anything if the current color is the default.
+	if ( $secondary_text_color === $default_color ) {
+		return;
+	}
+
+	$css = '
+		/* Custom Secondary Text Color */
+
+		/**
+		 * IE8 and earlier will drop any block with CSS3 selectors.
+		 * Do not combine these styles with the next block.
+		 */
+
+		#landing-nav a{
+			color: %1$s
+		}
+
+		h1.classes, 
+		h1.trainer-name,
+		h2.trainer-title,
+		button.trainer-button,
+		.pricing-footer,
+		.indv-blog-title,
+		h1.section-title,
+		.contact-bottom,
+		.contact-socialmediaicons,
+		.site-footer,
+		.entry-header,
+		.nav-img-list a .menu-image-title,
+		{
+			color:%1$s
+		}
+
+		mark,
+		ins,
+		button,
+		button[disabled]:hover,
+		button[disabled]:focus,
+		input[type="button"],
+		input[type="button"][disabled]:hover,
+		input[type="button"][disabled]:focus,
+		input[type="reset"],
+		input[type="reset"][disabled]:hover,
+		input[type="reset"][disabled]:focus,
+		input[type="submit"],
+		input[type="submit"][disabled]:hover,
+		input[type="submit"][disabled]:focus,
+		.menu-toggle.toggled-on,
+		.menu-toggle.toggled-on:hover,
+		.menu-toggle.toggled-on:focus,
+		.pagination .prev,
+		.pagination .next,
+		.pagination .prev:hover,
+		.pagination .prev:focus,
+		.pagination .next:hover,
+		.pagination .next:focus,
+		.pagination .nav-links:before,
+		.pagination .nav-links:after,
+		.widget_calendar tbody a,
+		.widget_calendar tbody a:hover,
+		.widget_calendar tbody a:focus,
+		.page-links a,
+		.page-links a:hover,
+		.page-links a:focus {
+			color:%1$s
+		}
+
 	';
 
 	wp_add_inline_style( 'fitnessspace-style', sprintf( $css, $secondary_text_color ) );

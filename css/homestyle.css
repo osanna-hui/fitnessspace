@@ -1,28 +1,6 @@
-/*********** FONT STYLES ************/
-@import url(https://fonts.googleapis.com/css?family=Open+Sans|Oswald:400,300);
-
-h1{
-    font-family: 'Oswald', sans-serif;
-    font-size:42px;
-    font-weight:400;
-    text-transform: uppercase;
-}
-h2{
-    font-family: 'Oswald', sans-serif;
-    font-size:28px;
-    font-weight:300;
-    text-transform: uppercase;
-}
-h3{
-    font-family: 'Open Sans', sans-serif;
-    font-size:20px;
-    text-transform: uppercase;
-}
-body{
-    font-family: 'Open Sans', sans-serif;
-    font-size:14px;
-    color:#2c2c2c;
-}
+/**
+* MAIN NAVIGATION
+**/
 .main-navigation, .landing-navigation{
     font-family: 'Oswald', sans-serif;
     font-size:20px;
@@ -42,7 +20,6 @@ body{
         height:100%;
     }
     .nav-img-list a{
-        /*max-width:220px;*/
         max-height:190px;
         margin: 5px;
         overflow:hidden;
@@ -106,14 +83,12 @@ body{
         width:125%;
         height:125%;
     }
+    .nav-img-list a .menu-image-title:hover{
+        background-color:#000;
+        z-index:10000;
+    }
 }
 @media(max-width:910px){
-/*    .img-menu, .dropdown-toggle:after {
-        display:none;
-    }
-    .main-navigation .menu-item-has-children > a{
-        margin-right:0;
-    }*/
     .main-navigation ul .img-menu ul{
         position:inherit;
         padding:0;
@@ -135,6 +110,9 @@ body{
     .nav-img-list a .menu-image-title:hover{
         color:#91B851;
     }
+    .nav-img-list:hover{
+        background-color:#000;
+    }
     .dropdown-toggle:after{
         border:0;
     }
@@ -146,35 +124,26 @@ body{
     }
 
 }
-    
-button{
-    font-family: 'Open Sans', sans-serif;
-    font-size:16px;
-    padding:12px;
-    margin:15px;
-    text-transform: uppercase;
-    background-color:#91B851;
-    color:#fff;
-    border:none;
-}
-button:hover{
-    background-color:#2c2c2c;
-    border:none;
-}
-input{
-    font-family: 'Open Sans', sans-serif;
-    font-size:16px;
-}
-a{
-    color:#2c2c2c;
-}
 
 /*********** GENERAL ************/
 .home-sections{
     max-width:100%;
 }
 .main-navigation li:hover > a, .main-navigation li.focus > a, .site-branding .site-title a:hover, .site-branding .site-title a:focus {
-    color:#91B851;
+    /*color:#91B851;*/
+}
+button{
+    font-family: 'Open Sans', sans-serif;
+    font-size:16px;
+    padding:12px;
+    margin:15px;
+    border:none;
+    /*background-color:#91B851;*/
+    color:#fff;
+}
+button:hover{
+    /*background-color:#2c2c2c;*/
+    border:none;
 }
 a:hover{
     text-decoration: none;
@@ -295,6 +264,7 @@ a:hover{
         background-color: #fff;
         z-index:100;
     }
+
 }
 /*********** STICKY HEADER ************/
 #masthead, .masthead-home{
@@ -394,43 +364,14 @@ a:hover{
     text-align: center;
     color: #fff;
 }
-/*
-.video-container .poster img {
-    width: 100%;
-    bottom: 0;
-    position: absolute;
-}
-.video-container .filter {
-    z-index: 100;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.4);
-    width: 100%;
-}
-.video-container video {
-    position: absolute;
-    z-index: 0;
-    bottom: 0;
-    background-size:cover;
-}
-.video-container video.fillWidth {
-    height: 100%;
-    width:auto;
-    margin-bottom:0;
-    overflow:hidden;
-}*/
 
 video#bgvid { 
     position: absolute;
-    /*top: 50%;
-    left: 50%;*/
+
     min-width: 120%;
     min-height: 100%;
     width: auto;
     height: auto;
-    /*-ms-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);*/
     background: url(../img/Sunset-Lapse.jpg) no-repeat;
     background-size: cover; 
 }
@@ -463,9 +404,9 @@ video#bgvid {
     padding:0;
 }
 .classes{
-        margin: 0;
-    padding-top: 144px;
-    padding-bottom: 137px;
+    margin: 0;
+    padding-top: 139px;
+    padding-bottom: 135px;
     color: #fff;
     background-size: cover;
 }
@@ -596,7 +537,7 @@ video#bgvid {
 }
 .pricing-footer{
     height:140px;
-    margin-top:50px;
+    margin-top:34px;
     padding:55px;
     background-position: center;
     color: #fff;
@@ -620,22 +561,23 @@ video#bgvid {
 }
 .indv-blog-title{
     position: absolute;
+    text-align: center;
     width: 295px;
     margin: auto;
     margin-top: -295px;
     color: #fff;
-    padding: 134px 0px 134px 0px;
+    padding: 133px 0px 132px 0px;
 }
 .indv-blog-title:hover{
     background-color:rgba(0,0,0,0.5);
     cursor:pointer;
+    max-height:295px;
 }
 
 /*********** CALL TO ACTION ************/
 
 #home-calltoaction{
     height:300px;
-    background-image:url("../img/unsplash_slider03.jpeg");
     background-size:cover;
     color:#fff;
     padding-top:70px;

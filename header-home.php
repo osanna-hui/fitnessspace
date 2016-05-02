@@ -13,7 +13,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<div class="site-inner">
-		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'fitnessspace' ); ?></a>
+		
 
 			<header>
 			</header><!-- .site-header -->

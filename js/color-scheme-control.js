@@ -11,14 +11,16 @@
 			'page_background_color',
 			'link_color',
 			'main_text_color',
-			'secondary_text_color'
+			'secondary_text_color',
+			'hover_filter_color'
 		],
 		colorSettings = [
 			'background_color',
 			'page_background_color',
 			'link_color',
 			'main_text_color',
-			'secondary_text_color'
+			'secondary_text_color',
+			'hover_filter_color'
 		];
 
 	api.controlConstructor.select = api.Control.extend( {
@@ -61,6 +63,14 @@
 					api.control( 'secondary_text_color' ).container.find( '.color-picker-hex' )
 						.data( 'data-default-color', color )
 						.wpColorPicker( 'defaultColor', color );
+
+					// Update Hover Filter Color.
+					color = colors[5];
+					api( 'hover_filter_color' ).set( color );
+					api.control( 'hover_filter_color' ).container.find( '.color-picker-hex' )
+						.data( 'data-default-color', color )
+						.wpColorPicker( 'defaultColor', color )
+						/*.toCSS( 'rgba', 0.75 );*/
 				} );
 			}
 		}
@@ -80,6 +90,8 @@
 		// Add additional color.
 		// jscs:disable
 		colors.border_color = Color( colors.main_text_color ).toCSS( 'rgba', 0.2 );
+
+		
 		// jscs:enable
 
 		css = cssTemplate( colors );

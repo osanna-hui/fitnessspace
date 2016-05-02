@@ -212,9 +212,6 @@ function fitnessspace_scripts() {
 
 	// Add Genericons, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.4.1' );
-	
-	// Theme stylesheet.
-	wp_enqueue_style( 'fitnessspace-style', get_stylesheet_uri() );
 
 	// Add Normalize
 	wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize.css', array(), '4.0.0' );
@@ -222,14 +219,14 @@ function fitnessspace_scripts() {
 	// Add Bootstrap
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6' );
 
-	//Add raccordion (added to homestyles.css)
-	//wp_enqueue_style( 'raccordion', get_template_directory_uri() . '/css/raccordion.css', array(), null );	
-	
 	// Add Swiper
 	wp_enqueue_style( 'swiper', get_template_directory_uri() . '/css/swiper.min.css', array(), '3.3.1' );
 
 	// Add Font Awesome
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '4.6.1' );
+
+	// Theme stylesheet.
+	wp_enqueue_style( 'fitnessspace-style', get_stylesheet_uri() );
 
 	// ADD MY STYLESHEET
 	wp_enqueue_style( 'homestyle', get_template_directory_uri() . '/css/homestyle.css', array(), null );
@@ -268,7 +265,6 @@ function fitnessspace_scripts() {
 
 	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/swiper.min.js', array(), null );
 
-	//wp_enqueue_script( 'vid-script', get_template_directory_uri() . '/js/vid.js', array(), null );
 
 	wp_enqueue_script( 'raccordion', get_template_directory_uri() . '/js/jquery.raccordion.js', array(), null );
 

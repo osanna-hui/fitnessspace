@@ -96,7 +96,7 @@
 			        		<h1>NUTRITION AND TRAINING TIPS</h1>
 			        		<!-- <a href="<?php the_permalink(); ?>"> -->
 							<!-- <h2 class="padding-top"><?php the_title(); ?></h2> -->
-							<div class="container padding-top"><?php the_content( "READ MORE..." );?></div>
+							<div class="container padding-top tips-slide"><?php the_content( "READ MORE..." );?></div>
 							<!-- </a> -->
 							<div class="contact-socialmediaicons" id="tips-socialmediaicons">
 								<?php if ( has_nav_menu( 'social' ) ) : ?>
@@ -119,6 +119,11 @@
 					
 				<?php endforeach; 
 				wp_reset_postdata();?>
+
+				        <!-- Slider Arrows -->
+		        <div class="swiper-button-next swiper-button-white"></div>
+		        <div class="swiper-button-prev swiper-button-white"></div>
+
 			</div><!-- swiper -->
 
 			
