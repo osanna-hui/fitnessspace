@@ -42,8 +42,8 @@
         <div class="swiper-pagination swiper-pagination-white"></div>
 
         <!-- Slider Arrows -->
-        <div class="swiper-button-next swiper-button-white"></div>
-        <div class="swiper-button-prev swiper-button-white"></div>
+        <div id="img-next" class="swiper-button-next swiper-button-white"></div>
+        <div id="img-prev" class="swiper-button-prev swiper-button-white"></div>
         
 	</div>
 </div>
@@ -53,12 +53,12 @@ var swiper = new Swiper('#img-swiper', {
     pagination: '.swiper-pagination',
     slidesPerView: 1,
     paginationClickable: true,
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
+    nextButton: '#img-next',
+    prevButton: '#img-prev',
     spaceBetween: 30,
-    effect: 'fade',
-    autoplay: 3500,
+    autoplay: 5000,
     autoplayDisableOnInteraction: false,
-    loop: true
+    loop: true,
+    effect: 'fade'
 });
 </script>

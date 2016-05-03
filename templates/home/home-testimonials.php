@@ -22,19 +22,24 @@
             	"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vehicula placerat nisi, non consectetur dui vehicula vitae. Mauris sed euismod elit. Nam purus ex, sagittis finibus diam quis, interdum elementum nulla."</h4>
             	<h2 class="testimonial-author">- Scott Evans</h2>
             </div>
+
+           
         </div>
+
+        <div id="testimonial-next" class="swiper-button-next swiper-button-black top15"></div>
+        <div id="testimonial-prev" class="swiper-button-prev swiper-button-black top15"></div><!-- Slider Arrows -->
 	</div>
 </div>
 <script>
-var swiper = new Swiper('.swiper-container', {
+var swiper = new Swiper('#testimonial-swiper', {
     pagination: '.swiper-pagination',
     slidesPerView: 1,
     paginationClickable: true,
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
+    nextButton: '#testimonial-next',
+    prevButton: '#testimonial-prev',
     spaceBetween: 30,
     effect: 'fade',
-    autoplay: 4500,
+    autoplay: 5000,
     autoplayDisableOnInteraction: false,
     loop: true
 });

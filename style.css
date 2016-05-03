@@ -465,7 +465,7 @@ a:active {
 .main-navigation .current-menu-item > a,
 .main-navigation .current-menu-ancestor > a {
 	font-weight: 700;
-	/*color:#91B851;*/
+	color:#91B851;
 }
 
 .main-navigation ul ul {
