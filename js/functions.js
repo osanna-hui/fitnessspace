@@ -218,12 +218,5 @@
 
 	});
 
-	/*
-	$('#menu-toggle').toggle( 
-    function() {
-        $('#content').animate({ left: 250 }, 'slow');
-    }, 
-    function() {
-        $('#content').animate({ left: 0 }, 'slow');
-    });*/
+
 } )( jQuery );

@@ -1486,7 +1486,7 @@ a.more-link{
     margin-bottom: -140px;
 }
 .page-thumbnail{
-	width:100%;
+	/*width:100%;*/
 	overflow:hidden;
 	margin-bottom:10px;
 }
@@ -1577,6 +1577,9 @@ a.more-link{
 }
 .tips-slide{
 	font-size: 16px;
+}
+.tips-swiper-slide{
+	max-height:370px;
 }
 #tips-socialmediaicons{
     position: absolute;

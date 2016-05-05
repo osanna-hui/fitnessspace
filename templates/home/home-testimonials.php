@@ -32,7 +32,6 @@
 </div>
 <script>
 var swiper = new Swiper('#testimonial-swiper', {
-    pagination: '.swiper-pagination',
     slidesPerView: 1,
     paginationClickable: true,
     nextButton: '#testimonial-next',

@@ -1,3 +1,5 @@
+<?php global $fitnessspace ?>
+<?php if (!empty($fitnessspace['slider_image_id']['url01'])): ?>
 <div class="home-sections" id="home-imageslider">
 	<div class="swiper-container" id="img-swiper" style="height:100%;">
         <div class="title-container">
@@ -21,36 +23,77 @@
             </div><!-- .site-header-menu -->
             <?php endif; ?>
         </div>
-
+        
         <div class="swiper-wrapper">
-        	
-            <div class="swiper-slide" style="background-image:url(./wp-content/themes/fitness-space/img/contact.jpg)">
+        	<?php
+
+                if (!empty($fitnessspace['slider_image_id']['url01'])){
+                    ?>
+                        <div id="slider-img01" class="swiper-slide" style="background-image:url( <?php echo $fitnessspace['slider_image_id']['url01']; ?> );"></div>
+
+                    <?php
+                }
+            ?>
+            
+            <?php
+
+                if (!empty($fitnessspace['slider_image_id']['url02'])){
+                    ?>
+                        <div id="slider-img02" class="swiper-slide" style="background-image:url( <?php echo $fitnessspace['slider_image_id']['url02']; ?> );"></div>
+
+                    <?php
+                }
+            ?>
+            
+            <?php
+
+                if (!empty($fitnessspace['slider_image_id']['url03'])){
+                    ?>
+                        <div id="slider-img03" class="swiper-slide" style="background-image:url( <?php echo $fitnessspace['slider_image_id']['url03']; ?> );"></div>
+
+                    <?php
+                }
+            ?>
+            
+            <?php
+
+                if (!empty($fitnessspace['slider_image_id']['url04'])){
+                    ?>
+                        <div id="slider-img04" class="swiper-slide" style="background-image:url( <?php echo $fitnessspace['slider_image_id']['url04']; ?> );"></div>
+
+                    <?php
+                }
+            ?>
+        
+            
+            
+   <!--          <div id="slider-img02" class="swiper-slide" style="background-image:url(./wp-content/themes/fitness-space/img/unsplash_slider02.jpeg)">
             </div>
             
-            <div class="swiper-slide" style="background-image:url(./wp-content/themes/fitness-space/img/unsplash_slider02.jpeg)">
+            <div id="slider-img03" class="swiper-slide" style="background-image:url(./wp-content/themes/fitness-space/img/unsplash_slider03.jpeg)">
             </div>
             
-            <div class="swiper-slide" style="background-image:url(./wp-content/themes/fitness-space/img/unsplash_slider03.jpeg)">
-            </div>
-            
-            <div class="swiper-slide" style="background-image:url(./wp-content/themes/fitness-space/img/unsplash_slider04.jpeg)">
-            </div>
+            <div id="slider-img04" class="swiper-slide" style="background-image:url(./wp-content/themes/fitness-space/img/unsplash_slider04.jpeg)">
+            </div> -->
+
             
         </div>
 
         <!-- Slider Pagination -->
-        <div class="swiper-pagination swiper-pagination-white"></div>
+        <div id="img-pagination" class="swiper-pagination swiper-pagination-white"></div>
 
         <!-- Slider Arrows -->
         <div id="img-next" class="swiper-button-next swiper-button-white"></div>
         <div id="img-prev" class="swiper-button-prev swiper-button-white"></div>
         
 	</div>
+
+
 </div>
 
 <script>
 var swiper = new Swiper('#img-swiper', {
-    pagination: '.swiper-pagination',
+    pagination: '#img-pagination',
     slidesPerView: 1,
     paginationClickable: true,
     nextButton: '#img-next',
@@ -62,3 +105,5 @@ var swiper = new Swiper('#img-swiper', {
     effect: 'fade'
 });
 </script>
+
+<?php endif; ?>

@@ -7,7 +7,7 @@
 ( function( api ) {
 	var cssTemplate = wp.template( 'fitnessspace-color-scheme' ),
 		colorSchemeKeys = [
-			'background_color',
+			//'background_color',
 			'page_background_color',
 			'link_color',
 			'main_text_color',
@@ -15,7 +15,7 @@
 			'hover_filter_color'
 		],
 		colorSettings = [
-			'background_color',
+			//'background_color',
 			'page_background_color',
 			'link_color',
 			'main_text_color',
@@ -30,11 +30,11 @@
 					var colors = colorScheme[value].colors;
 
 					// Update Background Color.
-					var color = colors[0];
+					/*var color = colors[0];
 					api( 'background_color' ).set( color );
 					api.control( 'background_color' ).container.find( '.color-picker-hex' )
 						.data( 'data-default-color', color )
-						.wpColorPicker( 'defaultColor', color );
+						.wpColorPicker( 'defaultColor', color );*/
 
 					// Update Page Background Color.
 					color = colors[1];

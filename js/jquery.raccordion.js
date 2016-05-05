@@ -34,7 +34,6 @@
                     width = w;
                     accordionWrapper.css("width", settings.sliderWidth);
                     accordionWrapper.find('.slide').each(function (index) {
-                        console.log(accordionWrapper.width()/totalSlides * index);
                         $(this).animate({ left: (index * (accordionWrapper.width()) / totalSlides) }, { queue: false, speed: settings.speed, easing: 'quadEaseOut' });
                     });
                 }

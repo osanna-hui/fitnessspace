@@ -92,7 +92,7 @@
 
 				foreach ( $posts_array as $post ) : setup_postdata( $post ); ?>
 					
-			        	<div class="swiper-slide padding-top" style="background-image:url(<?php the_post_thumbnail_url(); ?>); background-size:cover; background-position-y:60%;">
+			        	<div class="swiper-slide padding-top tips-swiper-slide" style="background-image:url(<?php the_post_thumbnail_url(); ?>); background-size:cover; background-position-y:60%;">
 			        		<h1>NUTRITION AND TRAINING TIPS</h1>
 			        		<!-- <a href="<?php the_permalink(); ?>"> -->
 							<!-- <h2 class="padding-top"><?php the_title(); ?></h2> -->
