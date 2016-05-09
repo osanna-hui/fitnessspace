@@ -826,7 +826,7 @@ $wp_customize->add_setting( 'fitnessspace[pricing_image_id][url01]',array(
 
 
 // Pricing Text Line 01
-$wp_customize->add_setting( 'fitnessspace[trainers_text_id][text01]',array( 
+$wp_customize->add_setting( 'fitnessspace[pricing_text_id][text01]',array( 
 	'type' => 'option',
 	'sanitize_callback' => 'sanitize_text_field',
 	'transport' => 'postMessage',
@@ -836,7 +836,7 @@ $wp_customize->add_setting( 'fitnessspace[trainers_text_id][text01]',array(
 			$wp_customize->add_control( 'pricing_text_01',array(
 					'label'       => __( 'Pricing Package Text', 'fitnessspace' ),
 					'section'     => 'pricing_section',
-					'settings'    => 'fitnessspace[trainers_text_id][text01]',
+					'settings'    => 'fitnessspace[pricing_text_id][text01]',
 					
 						
 					)
@@ -844,7 +844,7 @@ $wp_customize->add_setting( 'fitnessspace[trainers_text_id][text01]',array(
 
 
 // Pricing Text Line 02
-$wp_customize->add_setting( 'fitnessspace[trainers_text_id][text02]',array( 
+$wp_customize->add_setting( 'fitnessspace[pricing_text_id][text02]',array( 
 	'type' => 'option',
 	'sanitize_callback' => 'sanitize_text_field',
 	'transport' => 'postMessage',
@@ -854,7 +854,7 @@ $wp_customize->add_setting( 'fitnessspace[trainers_text_id][text02]',array(
 			$wp_customize->add_control( 'pricing_text_02',array(
 					'label'       => __( 'Pricing Amount Text', 'fitnessspace' ),
 					'section'     => 'pricing_section',
-					'settings'    => 'fitnessspace[trainers_text_id][text02]',
+					'settings'    => 'fitnessspace[pricing_text_id][text02]',
 					
 						
 					)
@@ -862,7 +862,7 @@ $wp_customize->add_setting( 'fitnessspace[trainers_text_id][text02]',array(
 
 
 // Pricing Text Line 03
-$wp_customize->add_setting( 'fitnessspace[trainers_text_id][text03]',array( 
+$wp_customize->add_setting( 'fitnessspace[pricing_text_id][text03]',array( 
 	'type' => 'option',
 	'sanitize_callback' => 'sanitize_text_field',
 	'transport' => 'postMessage',
@@ -872,27 +872,511 @@ $wp_customize->add_setting( 'fitnessspace[trainers_text_id][text03]',array(
 			$wp_customize->add_control( 'pricing_text_03',array(
 					'label'       => __( 'Pricing Duration Text', 'fitnessspace' ),
 					'section'     => 'pricing_section',
-					'settings'    => 'fitnessspace[trainers_text_id][text03]',
+					'settings'    => 'fitnessspace[pricing_text_id][text03]',
 					
 						
 					)
 			);
 
 // Pricing Link 01
-$wp_customize->add_setting( 'fitnessspace[trainers_text_id][link01]',array( 
+$wp_customize->add_setting( 'fitnessspace[pricing_text_id][link01]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'esc_url_raw',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'pricing_link_01',array(
+					'label'       => __( 'Pricing Link for Top Pricing Section', 'fitnessspace' ),
+					'section'     => 'pricing_section',
+					'settings'    => 'fitnessspace[pricing_text_id][link01]',
+					
+						
+					)
+			);
+
+// Pricing Text Line 04
+$wp_customize->add_setting( 'fitnessspace[pricing_text_id][text04]',array( 
 	'type' => 'option',
 	'sanitize_callback' => 'sanitize_text_field',
 	'transport' => 'postMessage',
 	)
 );
 
-			$wp_customize->add_control( 'pricing_link_01',array(
-					'label'       => __( 'Pricing Link for Top Section', 'fitnessspace' ),
+			$wp_customize->add_control( 'pricing_text_04',array(
+					'label'       => __( 'Pricing Alternative Text', 'fitnessspace' ),
 					'section'     => 'pricing_section',
-					'settings'    => 'fitnessspace[trainers_text_id][link01]',
+					'settings'    => 'fitnessspace[pricing_text_id][text04]',
 					
 						
 					)
 			);
+
+// Pricing Link 02
+$wp_customize->add_setting( 'fitnessspace[pricing_text_id][link02]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'esc_url_raw',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'pricing_link_02',array(
+					'label'       => __( 'Pricing Link for Bottom Pricing Section', 'fitnessspace' ),
+					'section'     => 'pricing_section',
+					'settings'    => 'fitnessspace[pricing_text_id][link02]',
+					
+						
+					)
+			);
+
+
+
+//*********************** BLOG SECTION ***********************//
+
+//Slider Type
+$wp_customize->add_setting( 'fitnessspace[blog_cat_id]', array(
+		'type' => 'option',
+        'default' => 'all_posts',
+) );
+ 
+			$wp_customize->add_control('blog_cat_select', array(
+					'type' => 'select',
+					'label' => __('Blog Category','fitnessspace'),
+					'description' => __('Choose the Blog Category you wish to display on the home page.','fitnessspace'),
+					'section' => 'blog_section',
+					'choices' => array(
+						'all_posts'=> __('All Blog Posts', 'fitnessspace'),
+						'no_posts'=>__('None', 'fitnessspace'),
+						
+					),
+					'settings'    => 'fitnessspace[blog_cat_id]'
+			) );
+
+// Blog Button Text
+$wp_customize->add_setting( 'fitnessspace[blog_text_id][text01]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'blog_button_text',array(
+					'label'       => __( 'Blog Button Text', 'fitnessspace' ),
+					'section'     => 'blog_section',
+					'settings'    => 'fitnessspace[blog_text_id][text01]',
+					
+						
+					)
+			);
+
+// Blog Button Link
+$wp_customize->add_setting( 'fitnessspace[blog_text_id][link01]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'esc_url_raw',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'blog_button_link',array(
+					'label'       => __( 'Blog Button Link', 'fitnessspace' ),
+					'section'     => 'blog_section',
+					'settings'    => 'fitnessspace[blog_text_id][link01]',
+					
+						
+					)
+			);
+
+
+//*********************** CALL TO ACTION SECTION ***********************//
+
+// Call to Action Background Image 
+$wp_customize->add_setting( 'fitnessspace[cta_image_id][url01]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'esc_url_raw',
+	)
+);
+
+			$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'cta_image_id_01',array(
+					'label'       => __( 'Call To Action Section Background Image', 'fitnessspace' ),
+					'section'     => 'cta_section',
+					'settings'    => 'fitnessspace[cta_image_id][url01]'
+						)
+					)
+			);
+
+
+// Call To Action Title Text
+$wp_customize->add_setting( 'fitnessspace[cta_text_id][text01]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'cta_text_01',array(
+					'label'       => __( 'Call To Action Text', 'fitnessspace' ),
+					'section'     => 'cta_section',
+					'settings'    => 'fitnessspace[cta_text_id][text01]',
+					)
+			);
+
+// Call To Action Button Text
+$wp_customize->add_setting( 'fitnessspace[cta_button_id][text01]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'cta_button_text',array(
+					'label'       => __( 'Call To Action Button Text', 'fitnessspace' ),
+					'section'     => 'cta_section',
+					'settings'    => 'fitnessspace[cta_button_id][text01]',
+					)
+			);
+
+// Call To Action Button Link
+$wp_customize->add_setting( 'fitnessspace[cta_button_id][link01]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'esc_url_raw',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'cta_button_link',array(
+					'label'       => __( 'Call To Action Button Link', 'fitnessspace' ),
+					'section'     => 'cta_section',
+					'settings'    => 'fitnessspace[cta_button_id][link01]',
+					)
+			);
+
+
+
+//*********************** TESTIMONIALS SECTION ***********************//
+
+// Testimonials 01 Name
+$wp_customize->add_setting( 'fitnessspace[testimonials_text_id][name01]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'testimonial_01_name',array(
+					'label'       => __( 'Testimonials 01: Author Name', 'fitnessspace' ),
+					'section'     => 'testimonials_section',
+					'settings'    => 'fitnessspace[testimonials_text_id][name01]',
+						
+					)
+			);
+
+// Testimonials 01 Text
+$wp_customize->add_setting( 'fitnessspace[testimonials_text_id][text01]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'testimonial_01_text',array(
+					'label'       => __( 'Testimonial 01: Testimonial Text', 'fitnessspace' ),
+					'type'        => 'textarea',
+					'section'     => 'testimonials_section',
+					'settings'    => 'fitnessspace[testimonials_text_id][text01]',
+						
+					)
+			);
+
+
+// Testimonials 02 Name
+$wp_customize->add_setting( 'fitnessspace[testimonials_text_id][name02]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'testimonial_02_name',array(
+					'label'       => __( 'Testimonials 02: Author Name', 'fitnessspace' ),
+					'section'     => 'testimonials_section',
+					'settings'    => 'fitnessspace[testimonials_text_id][name02]',
+						
+					)
+			);
+
+// Testimonials 02 Text
+$wp_customize->add_setting( 'fitnessspace[testimonials_text_id][text02]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'testimonial_02_text',array(
+					'label'       => __( 'Testimonial 02: Testimonial Text', 'fitnessspace' ),
+					'type'        => 'textarea',
+					'section'     => 'testimonials_section',
+					'settings'    => 'fitnessspace[testimonials_text_id][text02]',
+						
+					)
+			);
+
+
+// Testimonials 03 Name
+$wp_customize->add_setting( 'fitnessspace[testimonials_text_id][name03]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'testimonial_03_name',array(
+					'label'       => __( 'Testimonials 03: Author Name', 'fitnessspace' ),
+					'section'     => 'testimonials_section',
+					'settings'    => 'fitnessspace[testimonials_text_id][name03]',
+						
+					)
+			);
+
+// Testimonials 03 Text
+$wp_customize->add_setting( 'fitnessspace[testimonials_text_id][text03]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'testimonial_03_text',array(
+					'label'       => __( 'Testimonial 03: Testimonial Text', 'fitnessspace' ),
+					'type'        => 'textarea',
+					'section'     => 'testimonials_section',
+					'settings'    => 'fitnessspace[testimonials_text_id][text03]',
+						
+					)
+			);
+
+
+// Testimonials 04 Name
+$wp_customize->add_setting( 'fitnessspace[testimonials_text_id][name04]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'testimonial_04_name',array(
+					'label'       => __( 'Testimonials 04: Author Name', 'fitnessspace' ),
+					'section'     => 'testimonials_section',
+					'settings'    => 'fitnessspace[testimonials_text_id][name04]',
+						
+					)
+			);
+
+// Testimonials 04 Text
+$wp_customize->add_setting( 'fitnessspace[testimonials_text_id][text04]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'testimonial_04_text',array(
+					'label'       => __( 'Testimonial 04: Testimonial Text', 'fitnessspace' ),
+					'type'        => 'textarea',
+					'section'     => 'testimonials_section',
+					'settings'    => 'fitnessspace[testimonials_text_id][text04]',
+						
+					)
+			);
+
+
+
+
+//*********************** CONTACT SECTION ***********************//
+
+// Location - Address
+$wp_customize->add_setting( 'fitnessspace[contact_text_id][address]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'contact_address',array(
+					'label'       => __( 'Address', 'fitnessspace' ),
+					'section'     => 'location_section',
+					'type'        => 'textarea',
+					'settings'    => 'fitnessspace[contact_text_id][address]',
+						
+					)
+			);
+
+// Location - City
+$wp_customize->add_setting( 'fitnessspace[contact_text_id][city]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'contact_city',array(
+					'label'       => __( 'City', 'fitnessspace' ),
+					'section'     => 'location_section',
+					'settings'    => 'fitnessspace[contact_text_id][city]',
+						
+					)
+			);
+
+// Location - Province/State
+$wp_customize->add_setting( 'fitnessspace[contact_text_id][prov]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'contact_province_state',array(
+					'label'       => __( 'Province / State', 'fitnessspace' ),
+					'section'     => 'location_section',
+					'settings'    => 'fitnessspace[contact_text_id][prov]',
+						
+					)
+			);
+
+// Hours - Line 01
+$wp_customize->add_setting( 'fitnessspace[contact_text_id][hours01]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'contact_hours01',array(
+					'label'       => __( 'Hours (Weekdays)', 'fitnessspace' ),
+					'section'     => 'hours_section',
+					'type'        => 'textarea',
+					'settings'    => 'fitnessspace[contact_text_id][hours01]',
+						
+					)
+			);
+
+// Hours - Line 02
+$wp_customize->add_setting( 'fitnessspace[contact_text_id][hours02]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+
+			$wp_customize->add_control( 'contact_hours02',array(
+					'label'       => __( 'Hours (Weekends)', 'fitnessspace' ),
+					'section'     => 'hours_section',
+					'type'        => 'textarea',
+					'settings'    => 'fitnessspace[contact_text_id][hours02]',
+						
+					)
+			);
+
+// Contact Methods - Email
+$wp_customize->add_setting( 'fitnessspace[contact_text_id][email]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+			$wp_customize->add_control( 'contact_email',array(
+					'label'       => __( 'Email', 'fitnessspace' ),
+					'section'     => 'methods_section',
+					'settings'    => 'fitnessspace[contact_text_id][email]',
+						
+					)
+			);
+
+// Contact Methods - Phone
+$wp_customize->add_setting( 'fitnessspace[contact_text_id][phone]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+			$wp_customize->add_control( 'contact_phone',array(
+					'label'       => __( 'Phone', 'fitnessspace' ),
+					'section'     => 'methods_section',
+					'settings'    => 'fitnessspace[contact_text_id][phone]',
+						
+					)
+			);
+
+// Newsletter Signup
+$wp_customize->add_setting( 'fitnessspace[newsletter][select]',array( 
+	'type' => 'option',
+	'default' => 'Yes',
+	)
+);
+			$wp_customize->add_control( 'newsletter_select',array(
+					'type'        => 'select',
+					'label'       => __( 'Do you want to display a newsletter signup form?', 'fitnessspace' ),
+					'section'     => 'forms_section',
+					'choices' => array(
+						'Yes'=> __('Yes', 'fitnessspace'),
+						'No'=>__('No', 'fitnessspace'),
+						),
+					'settings'    => 'fitnessspace[newsletter][select]',
+						
+					)
+			);
+
+// Newsletter Shortcode
+$wp_customize->add_setting( 'fitnessspace[newsletter][shortcode]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+			$wp_customize->add_control( 'newsletter_shortcode',array(
+					'label'       => __( 'Newsletter shortcode', 'fitnessspace' ),
+					'type'        => 'textarea',
+					'section'     => 'forms_section',
+					'settings'    => 'fitnessspace[newsletter][shortcode]',
+						
+					)
+			);
+
+// Contact Form Signup
+$wp_customize->add_setting( 'fitnessspace[contactform][select]',array( 
+	'type' => 'option',
+	'default' => 'Yes',
+	)
+);
+			$wp_customize->add_control( 'contactform_select',array(
+					'type'        => 'select',
+					'label'       => __( 'Do you want to display a contact form signup form?', 'fitnessspace' ),
+					'section'     => 'forms_section',
+					'choices' => array(
+						'Yes'=> __('Yes', 'fitnessspace'),
+						'No'=>__('No', 'fitnessspace'),
+						),
+					'settings'    => 'fitnessspace[contactform][select]',
+						
+					)
+			);
+
+// Contact Form Shortcode
+$wp_customize->add_setting( 'fitnessspace[contactform][shortcode]',array( 
+	'type' => 'option',
+	'sanitize_callback' => 'sanitize_text_field',
+	'transport' => 'postMessage',
+	)
+);
+			$wp_customize->add_control( 'contactform_shortcode',array(
+					'label'       => __( 'Contact Form shortcode', 'fitnessspace' ),
+					'type'        => 'textarea',
+					'section'     => 'forms_section',
+					'settings'    => 'fitnessspace[contactform][shortcode]',
+						
+					)
+			);
+
+
 
 ?>

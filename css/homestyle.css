@@ -635,6 +635,9 @@ video#bgvid {
     font-size:16px;
     height:45px;
 }
+.newsletter-signup input[type="button"]{
+    color:#fff;
+}
 #home-contact-msg{
     height:150px;
 }

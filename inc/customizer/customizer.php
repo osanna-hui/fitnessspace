@@ -15,6 +15,13 @@ function fitnessspace_customize_register( $wp_customize ) {
 	    'title' => __( 'Front Page', 'fitnessspace' ),
 	) );
 
+	$wp_customize->add_panel( 'contact_panel', array(
+		'priority' => 2,
+	    'capability' => 'edit_theme_options',
+	    'theme_supports' => '',
+	    'title' => __( 'Contact Information', 'fitnessspace' ),
+	    'description' => __( 'Information within this panel will be displayed in the Home Page Contact Section', 'fitnessspace' ),
+	) );
 
 
 //******************** ADD SECTIONS ********************//
@@ -56,10 +63,67 @@ function fitnessspace_customize_register( $wp_customize ) {
 
 	$wp_customize->add_section('pricing_section', array(
 		'title'         => __('Pricing Section', 'fitnessspace'),
-		'description'   => __('This is where you can display you primary pricing package.'),
+		'description'   => __('This is where you can display your primary pricing package.'),
 		'priority'      => 15,	
 		'panel'         => 'front_panel',
 	));
+
+	$wp_customize->add_section('blog_section', array(
+		'title'         => __('Blog Section', 'fitnessspace'),
+		'description'   => __('This is where you can display you blog feeds.'),
+		'priority'      => 16,	
+		'panel'         => 'front_panel',
+	));
+
+	$wp_customize->add_section('cta_section', array(
+		'title'         => __('Call To Action Section', 'fitnessspace'),
+		'description'   => __('This is where you can display your main Call To Action.'),
+		'priority'      => 17,	
+		'panel'         => 'front_panel',
+	));
+
+	$wp_customize->add_section('testimonials_section', array(
+		'title'         => __('Testimonials Section', 'fitnessspace'),
+		'description'   => __('This is where you can display some testimonials.'),
+		'priority'      => 18,	
+		'panel'         => 'front_panel',
+	));
+
+/*	$wp_customize->add_section('contact_section', array(
+		'title'         => __('Contact Section', 'fitnessspace'),
+		'description'   => __('This is where you can edit your contact information.'),
+		'priority'      => 19,	
+		'panel'         => 'front_panel',
+	));*/
+
+	$wp_customize->add_section('location_section', array(
+		'title'         => __('Location', 'fitnessspace'),
+		'priority'      => 20,	
+		'panel'         => 'contact_panel',
+		'description' => __( 'Information within this panel will be displayed in the Home Page Contact Section', 'fitnessspace' ),
+	));
+
+	$wp_customize->add_section('hours_section', array(
+		'title'         => __('Hours', 'fitnessspace'),
+		'priority'      => 21,	
+		'panel'         => 'contact_panel',
+	 	'description' => __( 'Information within this panel will be displayed in the Home Page Contact Section', 'fitnessspace' ),
+	));
+
+	$wp_customize->add_section('methods_section', array(
+		'title'         => __('Contact Methods', 'fitnessspace'),
+		'priority'      => 22,	
+		'panel'         => 'contact_panel',
+		'description' => __( 'Information within this panel will be displayed in the Home Page Contact Section', 'fitnessspace' ),
+	));
+
+	$wp_customize->add_section('forms_section', array(
+		'title'         => __('Newsletter and Contact Forms', 'fitnessspace'),
+		'priority'      => 23,	
+		'panel'         => 'contact_panel',
+		'description' => __( 'Information within this panel will be displayed in the Home Page Contact Section', 'fitnessspace' ),
+	));
+
 
 //******************** ADD SETTINGS AND CONTROLS ********************//
 

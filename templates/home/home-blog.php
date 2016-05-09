@@ -1,3 +1,6 @@
+<?php global $fitnessspace; ?>
+
+
 <div class="home-sections center" id="home-blog">
 	<h1 class="section-title">BLOG</h1>
 	<div class="blog-grid">
@@ -30,5 +33,10 @@
 		
 	</div>
 
-	<button class="">READ MORE</button>
+	<?php if (!empty($fitnessspace['blog_text_id']['text01']) || !empty($fitnessspace['blog_text_id']['link01']) ): ?>
+		<a href="<?php echo $fitnessspace['blog_text_id']['link01']?>">
+			<input type="button" value="<?php echo $fitnessspace['blog_text_id']['text01']?>"/>
+		</a>
+	<?php endif; ?>
+
 </div>
