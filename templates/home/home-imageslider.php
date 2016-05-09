@@ -4,8 +4,35 @@
 	<div class="swiper-container" id="img-swiper" style="height:100%;">
         <div class="title-container">
             <div class="headline">
-                <img class="slider-logo" src="./wp-content/themes/fitness-space/img/logoslider.png"/>
-                <button class="clear-button">BOOK A CLASS</button>
+
+                <?php
+
+                    if (!empty($fitnessspace['slider_image_id']['url00'])){
+                        ?>
+                            <img class="slider-logo" src="<?php echo $fitnessspace['slider_image_id']['url00']?>"/>
+                        <?php
+                    } else {
+                        ?>
+                            <img class="slider-logo" src="<?php echo get_template_directory_uri();?>/img/logoslider.png"/>
+                        <?php
+                    }
+                ?><!-- Logo -->
+
+                <?php
+                    if(!empty($fitnessspace['slider_text']['button_text'])){
+                        ?>
+                        <h1><?php echo do_shortcode($fitnessspace['slider_text']['title_text']);?></h1>
+                    <?php 
+                    } 
+                ?><!-- Title Text -->
+
+                <?php
+                    if(!empty($fitnessspace['slider_text']['button_text'])){
+                        ?>
+                        <button class="clear-button"><?php echo do_shortcode($fitnessspace['slider_text']['button_text']);?></button>
+                    <?php 
+                    } 
+                ?><!-- Button Text -->
             </div>
             <?php if ( has_nav_menu( 'landing' ) ) : ?>
             <div class="landing-nav">
@@ -66,17 +93,6 @@
             ?>
         
             
-            
-   <!--          <div id="slider-img02" class="swiper-slide" style="background-image:url(./wp-content/themes/fitness-space/img/unsplash_slider02.jpeg)">
-            </div>
-            
-            <div id="slider-img03" class="swiper-slide" style="background-image:url(./wp-content/themes/fitness-space/img/unsplash_slider03.jpeg)">
-            </div>
-            
-            <div id="slider-img04" class="swiper-slide" style="background-image:url(./wp-content/themes/fitness-space/img/unsplash_slider04.jpeg)">
-            </div> -->
-
-            
         </div>
 
         <!-- Slider Pagination -->
@@ -106,4 +122,4 @@ var swiper = new Swiper('#img-swiper', {
 });
 </script>
 
-<?php endif; ?>
+<?php endif; ?><!-- image slider -->

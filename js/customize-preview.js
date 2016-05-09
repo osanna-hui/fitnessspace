@@ -39,12 +39,12 @@
 		} );
 	} );
 
-	api( 'fitnessspace[slider_image_id][url01]', function( value ){
+/*	api( 'fitnessspace[slider_image_id][url01]', function( value ){
 		value.bind( function ( newval ){
 			$( '#slider-img01' ).css('background-image', 'url('+newval+')');
 		});
 	});
-
+*/
 
 
 
