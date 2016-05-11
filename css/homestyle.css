@@ -191,6 +191,7 @@ a:hover{
     background-color:rgba(0,0,0,0);
     color:#fff;
     border:1px solid #fff;
+    text-transform:uppercase;
 }
 .clear-button:hover, input#home-contact-submit:hover, input.clear-button:hover{
     background-color:#91B851;
@@ -645,6 +646,7 @@ input#home-contact-submit, #newsletter-submit{
     margin:5px 0px 5px 0px;
     padding:12px;
     float:right;
+    text-transform:uppercase;
 }
 .contact-location{
     height: 420px;
