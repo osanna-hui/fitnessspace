@@ -45,9 +45,6 @@
 					<?php
 						if ( has_post_thumbnail() ) {
 						    the_post_thumbnail();
-						} else {?>
-							<img src="http://localhost:8888/wordpress/wp-content/uploads/2016/04/blog3.jpg" alt="placeholder-img"/>
-						<?php
 						}
 					?>
 					<h2 class="indv-blog-title"><?php the_title(); ?></h2>

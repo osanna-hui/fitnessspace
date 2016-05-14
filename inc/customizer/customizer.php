@@ -130,6 +130,7 @@ function fitnessspace_customize_register( $wp_customize ) {
 	//require (get_template_directory() . '/inc/setting-color.php');
 	require (get_template_directory() . '/inc/customizer/setting-frontpage.php');
 
+	require (get_template_directory() . '/inc/customizer/setting-contact.php');
 
 }
 add_action( 'customize_register', 'fitnessspace_customize_register' );

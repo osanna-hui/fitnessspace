@@ -51,8 +51,11 @@
 							<?php echo get_the_post_thumbnail( $page->ID, $size = array('1120') ); ?>
 						</div>
 						<div class="temp2-info">
-							<h1 class="temp2-title center"><?php echo $page->post_title ?></h1>
+							<h1 class="temp2-title center">
+								<?php echo $page->post_title ?>
+							</h1>
 							<?php echo $content ?>
+							<a class="whitetext" href="<?php echo get_permalink($page->ID)?>">Find Out More About <?php echo $page->post_title ?></a>
 						</div>
 						
 					</div>
@@ -66,6 +69,7 @@
 						<div class="temp2-info white">
 							<h1 class="temp2-title center"><?php echo $page->post_title ?></h1>
 							<?php echo $content ?>
+							<a href="<?php echo get_permalink($page->ID)?>">Find Out More About <?php echo $page->post_title ?></a>
 						</div>
 						
 					</div>

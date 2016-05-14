@@ -73,6 +73,11 @@ require get_template_directory() . '/inc/lib/enqueue.php';
 require get_template_directory() . '/inc/lib/core-functions.php';
 
 /**
+ * Fitness Space Metaboxes.
+ */
+//require get_template_directory() . '/inc/metaboxes.php';
+
+/**
  * Defaults additions.
  */
 require get_template_directory() . '/inc/lib/defaults.php';

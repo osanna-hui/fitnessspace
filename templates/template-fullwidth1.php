@@ -37,12 +37,14 @@
 			foreach($pages as $page)
 			{
 				$content = $page->post_content;
+				
+
 				if(!$content)
 					continue;
-				/*if($count >= 3)
-					break;*/
+		
 				$count++;
 				$content = apply_filters('the_content', $content);
+
 
 				if ($count == 1 || $count % 2 == 1){
 				?>
@@ -51,8 +53,10 @@
 							<?php echo get_the_post_thumbnail( $page->ID, $size = array('960') ); ?>
 						</div>
 						<div class="child-info">
-							<h2 class="child-title"><?php echo $page->post_title ?></h2>
-							<?php echo $content ?>
+							<!-- <h2 class="child-title"><?php echo $page->post_title ?></h2> -->
+							<?php echo $content ;?>
+							<a href="<?php echo get_permalink($page->ID)?>">Find Out More About <?php echo $page->post_title ?></a>
+							
 						</div>
 						
 					</div>
@@ -65,8 +69,11 @@
 							<?php echo get_the_post_thumbnail( $page->ID, $size = array('960', '500') ); ?>
 						</div>
 						<div class="child-info left">
-							<h2 class="child-title"><?php echo $page->post_title ?></h2>
+							<!-- <h2 class="child-title"><?php echo $page->post_title ?></h2> -->
+
 							<?php echo $content ?>
+							
+							<a href="<?php echo get_permalink($page->ID)?>">Find Out More About <?php echo $page->post_title ?></a>
 						</div>
 						
 					</div>

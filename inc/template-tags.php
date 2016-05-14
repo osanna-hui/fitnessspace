@@ -1,4 +1,37 @@
 <?php
+if ( ! function_exists( 'fitnessspace_gallery_images' ) ) :
+function fitnessspace_gallery_images($content){
+
+ 	global $post;
+
+ 	if( ! is_singular() )
+ 		return $content;
+
+ 	if( ! has_shortcode( $post->post_content, 'gallery' ) )
+ 		return $content;
+
+ 	$gallery = get_post_gallery_images( $post );
+
+	$image_gallery = '<div class="swiper-container" id="gallery-swiper" style="height:100%;">';
+
+	$image_gallery .= '<div id="gallery-wrapper" class="swiper-wrapper">';
+
+	foreach( $gallery as $image_url ) {
+		$image_gallery .= '<div id="slider-img03" class="swiper-slide" style="background-image:url( '. $image_url . ');"></div>';
+	}
+	$image_gallery .= '<div id="gallery-next" class="swiper-button-next swiper-button-white"></div>
+        <div id="gallery-prev" class="swiper-button-prev swiper-button-white"></div>';
+	$image_gallery .= '</div></div>';
+
+
+	$content = $image_gallery . $content;
+
+ 	return $content;
+
+
+ }
+ add_filter( 'the_content', 'fitnessspace_gallery_images' );
+endif;
 
 if ( ! function_exists( 'fitnessspace_entry_meta' ) ) :
 /**
@@ -8,7 +41,9 @@ if ( ! function_exists( 'fitnessspace_entry_meta' ) ) :
  *
  * @since Fitness Space 1.0
  */
+
 function fitnessspace_entry_meta() {
+
 	if ( 'post' === get_post_type() ) {
 		$author_avatar_size = apply_filters( 'fitnessspace_author_avatar_size', 49 );
 		printf( '<span class="byline"><span class="author vcard">%1$s<span class="screen-reader-text">%2$s </span> <a class="url fn n" href="%3$s">%4$s</a></span></span>',
@@ -43,6 +78,8 @@ function fitnessspace_entry_meta() {
 	}
 }
 endif;
+
+
 
 if ( ! function_exists( 'fitnessspace_entry_date' ) ) :
 /**
@@ -84,17 +121,18 @@ if ( ! function_exists( 'fitnessspace_entry_taxonomies' ) ) :
  */
 function fitnessspace_entry_taxonomies() {
 	$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'fitnessspace' ) );
+
 	if ( $categories_list && fitnessspace_categorized_blog() ) {
-		printf( '<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
-			_x( 'Categories', 'Used before category names.', 'fitnessspace' ),
+		printf( '<span class="cat-links"><span>%1$s </span>%2$s</span>',
+			_x( 'Category: ', 'Used before category names.', 'fitnessspace' ),
 			$categories_list
 		);
-	}
+	} 
 
 	$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'fitnessspace' ) );
 	if ( $tags_list ) {
-		printf( '<span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
-			_x( 'Tags', 'Used before tag names.', 'fitnessspace' ),
+		printf( '<span class="tags-links"><span>%1$s </span>%2$s</span>',
+			_x( 'Tags: ', 'Used before tag names.', 'fitnessspace' ),
 			$tags_list
 		);
 	}

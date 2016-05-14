@@ -1,3 +1,28 @@
+ @import url(https://fonts.googleapis.com/css?family=Open+Sans|Oswald:400,300);
+
+h1{
+    font-family: 'Oswald', sans-serif;
+    font-size:42px;
+    font-weight:400;
+    text-transform: uppercase;
+}
+h2{
+    font-family: 'Oswald', sans-serif;
+    font-size:28px;
+    font-weight:300;
+    text-transform: uppercase;
+}
+h3{
+    font-family: 'Open Sans', sans-serif;
+    font-size:20px;
+    text-transform: uppercase;
+}
+html, body, p {
+    font-family: 'Oopen Sans', sans-serif;
+    font-size:14px;
+
+}
+
 /**
 * MAIN NAVIGATION
 **/
@@ -145,6 +170,21 @@ button:hover, input[type="button"]:hover{
     background-color:#2c2c2c;
     border:none;
 }
+input[type="submit"]{
+    font-family: 'Open Sans', sans-serif;
+    font-size:16px;
+    background-color: rgba(0,0,0,0);
+    border:1px solid #2c2c2c;
+    padding:12px;
+    color:#2c2c2c;
+    margin:10px 0;
+    text-transform: uppercase;
+}
+input[type="submit"]:hover{
+    background-color:#91B851;
+    border:1px solid #91B851;
+    color:#fff;
+}
 a:hover{
     text-decoration: none;
     color:#91B851;
@@ -177,6 +217,9 @@ a:hover{
 .white{
     background-color:#fff;
     color:#2c2c2c;
+}
+.whitetext{
+    color:#fff;
 }
 .green{
     color:#91B851;
@@ -231,6 +274,9 @@ a:hover{
     }
     .thin-margin{
         margin-top:0;
+    }
+    .margin{
+        margin-top:300px;
     }
 }
 @media (max-width:910px){
