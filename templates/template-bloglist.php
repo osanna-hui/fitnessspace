@@ -28,11 +28,13 @@
 		} 
 	?>
 
-	<div class="entry-content">
-		<div class="blog-grid container">
+	<div id="blog-grid-page" class="entry-content">
+		
+
+		<div class="blog-grid">
 			<?php
 			$args = array( 
-				'posts_per_page' => 5, 
+				'posts_per_page' => 12, 
 				'order'=> 'DESC', 
 				'orderby' => 'date' );
 				$postslist = get_posts( $args );
@@ -54,7 +56,35 @@
 			endforeach; 
 			wp_reset_postdata();
 			?><!-- the loop -->
-	</div><!-- blog grid -->
+		</div><!-- blog grid -->
+		<div class="blog-top">
+			<div id="cat-list" class="category-list">
+			
+				<?php wp_list_categories(array(
+						'orderby' => 'name',
+						'title_li' => '<h2 id="cat-dropdown">' . __( 'CATEGORY<i class="fa fa-caret-down" aria-hidden="true"></i>', 'textdomain' ) . '</h2>',
+						
+					)); ?>
+				
+			</div>
+			<div class="category-list">
+				<li id="date" class="categories">
+					<h2 id="date-dropdown">DATE<i class="fa fa-caret-down" aria-hidden="true"></i></h2>
+					<ul>
+						<?php wp_get_archives(); ?>
+					</ul>
+				</li>
+			</div>
+			<div class="search-form">
+				<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<label>
+						<span class="screen-reader-text"><?php echo _x( 'Search for:', 'label', 'fitnessspace' ); ?></span>
+						<input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'fitnessspace' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+					</label>
+					<button type="submit" class="search-submit"><span class="screen-reader-text"><?php echo _x( 'Search', 'submit button', 'fitnessspace' ); ?></span></button>
+				</form>
+			</div>
+		</div>
 
 		
 		
@@ -82,4 +112,12 @@
 
 <?php get_sidebar(); ?>
 <div class="margin"></div>
+<script type="text/javascript">
+	$('#cat-dropdown').click(function(){
+		$('#cat-list .categories ul').toggle();
+	});
+	$('#date-dropdown').click(function(){
+		$('#date ul').toggle();
+	});
+</script>
 <?php get_footer(); ?>

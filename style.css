@@ -1638,6 +1638,72 @@ a.more-link{
     vertical-align: top;
     text-align: right;
 }
+.entry-content .blog-grid{
+	margin-top:80px;
+}
+#blog-grid-page{
+	margin:140px 9vw 0;
+}
+.blog-grid .indv-blog-grid{
+    width: 20vw;
+    height: 20vw;
+	overflow:hidden;
+}
+.blog-grid .indv-blog-grid img{
+	height:100%;
+	width:auto;
+}
+.blog-grid .indv-blog-grid h2{
+    width: 20vw;
+    height: 20vw;
+	margin-top:-20vw;
+	padding-top: 10vw;
+	z-index:0;
+}
+.blog-top{
+	position:absolute;
+    width: 80vw;
+    margin: 0 9vw;
+    top:570px;
+	left:0;
+	right:0;
+
+}
+.blog-top .search-form{
+	width:30%;
+    display: inline-block;
+    float: right;
+}
+.blog-top .search-form form{
+	width:100%;
+}
+.blog-top .search-form form label{
+	width:90%;
+}
+.blog-top .category-list{
+    display: inline-block;
+    width: 18%;
+    text-transform: uppercase;
+    text-align:left;
+    font-size:16px;
+    font-weight: 300;
+    font-family: oswald;
+    vertical-align: top;
+    margin:0 1%;
+}
+.blog-top .category-list select{
+	width:75%;
+	height:50px;
+	border: none;
+    background-color: #fff;
+    text-transform: uppercase;
+}
+.blog-top .category-list select:hover{
+	cursor:pointer;
+}
+select .level-0{
+	background-color:#fff;
+}
 .categories{
 	list-style: none;
 	padding:10px 0;
@@ -1646,7 +1712,26 @@ a.more-link{
 .categories h2{
 	margin-bottom:10px;
 }
-.cat-item {
+.blog-top .category-list .categories h2:hover{
+	cursor:pointer;
+}
+.blog-top .category-list .categories h2 i{
+	margin-left:20px;
+}
+.blog-top .category-list .categories ul{
+	background-color:#000;
+	margin:0;
+	padding:10px;
+	display:none;
+}
+.blog-top .category-list .categories .cat-item ul{
+	padding-top:0;
+	padding-bottom:0;
+}
+.blog-top .category-list .categories li a{
+	color:#fff;
+}
+.categories li, .cat-item{
 	list-style:none;
 	padding:5px 0;
 	margin:5px 0;

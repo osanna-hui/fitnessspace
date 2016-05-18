@@ -606,7 +606,8 @@ video#bgvid {
     display:inline-block;
     height:295px;
     margin:0;
-    margin-left:-6px;
+    margin-left: -4px;
+    margin-top: -5px;
     padding:0;
 }
 .indv-blog-title{
